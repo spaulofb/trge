@@ -7,11 +7,10 @@ echo "Total de notícias: " . $result->num_rows."<br>";
 
 // echo password_hash("l3", PASSWORD_DEFAULT);
 
-
-
-
 ?>
 <h2>Destaques</h2>
+
+<img src="https://sol.fmrp.usp.br/testes/trge/uploads/2026/05/teste1.jpg">
 
 <div class="carousel">
 
@@ -21,6 +20,7 @@ $result = $con->query($sql);
 
 while($row = $result->fetch_assoc()) {
 ?>
+
   <div class="slide">
     <a href="noticia.php?id=<?php echo $row['id']; ?>">
       <img src="<?php echo $row['thumb']; ?>">

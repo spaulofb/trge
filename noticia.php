@@ -5,19 +5,24 @@ include "header.php";
 
 $id = intval($_GET['id']);
 
+echo "\$id = $id ";
+
 $sql = "SELECT * FROM noticias WHERE id = $id";
 $result = $con->query($sql);
 $noticia = $result->fetch_assoc();
 ?>
 
 <div class="card">
-  <h1><?php echo $noticia['titulo']; ?></h1>
-<a href="noticia.php?id=<?php echo $row['id']; ?>">
-  <img src="<?php echo $row['imagem']; ?>">
-  <h3><?php echo $row['titulo']; ?></h3>
-</a>
+    <!-- Aqui você já estava usando a variável correta ($noticia) -->
+    <h1><?php echo $noticia['titulo']; ?></h1>
 
-  <p><?php echo $noticia['conteudo']; ?></p>
+    <!-- CORREÇÃO AQUI: Troque $row por $noticia -->
+    <img src="<?php echo $noticia['imagem']; ?>" alt="<?php echo $noticia['titulo']; ?>">
+    
+    <!-- Se você quiser exibir o título novamente abaixo da imagem -->
+  <!--  <h3><php echo noticia[titulo]; ?></h3>  -->
+
+    <p><?php echo $noticia['conteudo']; ?></p>
 </div>
 
 <?php include "footer.php"; ?>
