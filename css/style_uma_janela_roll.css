@@ -1,0 +1,106 @@
+body { font-family: Arial; margin:0; background:#f4f4f4; }
+
+header {
+  background: linear-gradient(90deg,#0077ff,#00c6ff);
+  color:white; text-align:center; padding:20px;
+}
+
+nav { background:#333; text-align:center; padding:10px; }
+nav a { color:white; margin:10px; text-decoration:none; }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+   opacity: 0.9;
+}
+
+.container { padding:20px; }
+
+/* CARROSSEL */
+/* Container principal do Carrossel */
+
+
+.carousel {
+    display: flex;
+    overflow-x: hidden; /* Importante para o JS controlar */
+    scroll-snap-type: x mandatory; /* Faz a imagem "travar" na posição correta */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.slide {
+    min-width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: start; /* Alinha o início do slide com o início da div */
+}
+
+
+
+.slide img {
+    width: 100%;
+    height: 350px; /* Ajuste a altura como preferir */
+    object-fit: cover;
+    display: block;
+}
+
+/* ESTILO DO TÍTULO (Aparece no Mouse Over) */
+.slide p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7); /* Fundo preto transparente */
+    color: white;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    
+    /* Efeito de esconder/mostrar */
+    opacity: 0; 
+    transition: opacity 0.4s ease; /* Transição suave de 0.4 segundos */
+}
+
+/* Quando o mouse passa por cima do slide, mostra o p */
+.slide:hover p {
+    opacity: 1;
+}
+
+
+
+/* GRID RESPONSIVO */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap:15px;
+}
+
+.card {
+  background:white;
+  border-radius:10px;
+  overflow:hidden;
+  padding:10px;
+}
+
+.card img {
+  width:100%;
+  height:180px;
+  object-fit:cover;
+}
+
+footer {
+  background:#222;
+  color:white;
+  text-align:center;
+  padding:10px;
+  margin-top:20px;
+}
+
+/* RESPONSIVO */
+@media (max-width:600px){
+  header h1 { font-size:20px; }
+}

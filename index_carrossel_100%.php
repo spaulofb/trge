@@ -55,66 +55,30 @@ while($row = $result->fetch_assoc()) {
   style="border:0;">
 </iframe>
 
-
 <script>
+    //
     const slider = document.getElementById('newsSlider');
-    const slides = slider.getElementsByClassName('slide');
-    let currentIndex = 0;
-    const delay = 5000; // 5 segundos cravados
-    let timer;
-
-    function moveSlider(index) {
-        // Atualiza o índice global
-        currentIndex = index;
-        
-        // Calcula a posição exata
-        const targetX = slider.offsetWidth * currentIndex;
-
-        // Move apenas o scroll interno
-        slider.scrollTo({
-            left: targetX,
-            behavior: 'smooth'
-        });
-    }
+    let scrollAmount = 0;
+    const scrollStep = slider.offsetWidth; // Tamanho de um slide
+    const delay = 5000; // Tempo em milissegundos (5 segundos)
 
     function autoPlay() {
-        currentIndex++;
-        
-        // Se chegar ao fim, volta para o zero
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
+        // Se chegar no final, volta para o começo
+        if (slider.scrollLeft >= (slider.scrollWidth - slider.offsetWidth) - 1) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            // Move para o próximo slide
+            slider.scrollBy({ left: slider.offsetWidth, behavior: 'smooth' });
         }
-        
-        moveSlider(currentIndex);
     }
-
-    function startTimer() {
-        stopTimer(); // Limpa qualquer resquício de timer
-        timer = setInterval(autoPlay, delay);
-    }
-
-    function stopTimer() {
-        clearInterval(timer);
-    }
-
-    // Inicia o carrossel
-    startTimer();
-
-    // Eventos de interação: Pausa quando o mouse entra, retoma quando sai
-    slider.addEventListener('mouseenter', stopTimer);
-    slider.addEventListener('mouseleave', startTimer);
-
-    // Ajuste para não quebrar o alinhamento se redimensionar a janela (FMRP desktop/mobile)
-    window.addEventListener('resize', () => {
-        slider.scrollTo({ 
-            left: slider.offsetWidth * currentIndex, 
-            behavior: 'auto' 
-        });
-    });
+    //
+    // Inicia o temporizador
+    let timer = setInterval(autoPlay, delay);
+    //
+    // Pausa o slider se o usuário passar o mouse por cima
+    slider.addEventListener('mouseover', () => clearInterval(timer));
+    slider.addEventListener('mouseout', () => timer = setInterval(autoPlay, delay));
+    //
 </script>
-
-
-
-
 
 <?php include "footer.php"; ?>

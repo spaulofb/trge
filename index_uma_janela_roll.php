@@ -63,58 +63,43 @@ while($row = $result->fetch_assoc()) {
     const delay = 5000; // 5 segundos cravados
     let timer;
 
-    function moveSlider(index) {
-        // Atualiza o índice global
-        currentIndex = index;
-        
-        // Calcula a posição exata
-        const targetX = slider.offsetWidth * currentIndex;
-
-        // Move apenas o scroll interno
-        slider.scrollTo({
-            left: targetX,
-            behavior: 'smooth'
-        });
-    }
-
-    function autoPlay() {
-        currentIndex++;
-        
-        // Se chegar ao fim, volta para o zero
-        if (currentIndex >= slides.length) {
-            currentIndex = 0;
-        }
-        
-        moveSlider(currentIndex);
-    }
-
     function startTimer() {
-        stopTimer(); // Limpa qualquer resquício de timer
-        timer = setInterval(autoPlay, delay);
-    }
-
-    function stopTimer() {
+        // Limpa qualquer timer existente antes de começar um novo
         clearInterval(timer);
+        timer = setInterval(() => {
+            currentIndex++;
+            
+            // Se passar da última imagem, volta para a primeira
+            if (currentIndex >= slides.length) {
+                currentIndex = 0;
+            }
+
+            // A MÁGICA: Em vez de calcular pixels, dizemos ao navegador
+            // para mostrar o slide específico da vez.
+            slides[currentIndex].scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest',
+                inline: 'start'
+            });
+        }, delay);
     }
 
-    // Inicia o carrossel
+    // Inicia pela primeira vez
     startTimer();
 
-    // Eventos de interação: Pausa quando o mouse entra, retoma quando sai
-    slider.addEventListener('mouseenter', stopTimer);
+    // Pausa ao passar o mouse e reinicia do zero ao sair
+    slider.addEventListener('mouseenter', () => clearInterval(timer));
     slider.addEventListener('mouseleave', startTimer);
 
-    // Ajuste para não quebrar o alinhamento se redimensionar a janela (FMRP desktop/mobile)
-    window.addEventListener('resize', () => {
-        slider.scrollTo({ 
-            left: slider.offsetWidth * currentIndex, 
-            behavior: 'auto' 
-        });
-    });
+    // Garante que, se o usuário rolar manualmente, o índice se atualize
+    slider.addEventListener('scroll', () => {
+        // Atualiza o índice baseado na posição atual da rolagem
+        const index = Math.round(slider.scrollLeft / slider.offsetWidth);
+        if (index !== currentIndex) {
+            currentIndex = index;
+        }
+    }, { passive: true });
 </script>
-
-
-
 
 
 <?php include "footer.php"; ?>

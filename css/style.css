@@ -14,39 +14,122 @@ a {
 }
 
 a:hover {
-  opacity: 0.9;
+   opacity: 0.9;
 }
 
 .container { padding:20px; }
 
 /* CARROSSEL */
+/* Container principal do Carrossel */
+
+/*
+.carousel {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+  */  
+    /* MANTÉM A LARGURA REDUZIDA */
+ /*   max-width: 600px;
+    margin: 0 auto;
+    
+    width: 100%;
+    border-radius: 15px;  */ /* Arredondamento externo */
+/*    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15); */  /* Sombra para destacar o card */
+/* }  */
+
+
+/* 1. Para alinhar o CONTAINER do carrossel para a esquerda */
+
 
 .carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  scroll-behavior: smooth;
-  padding: 10px;
+    display: flex;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+    border-radius: 15px;
+    position: relative;
+    /* Remova o scroll-snap-type daqui se ainda estiver usando */
+    scroll-behavior: auto; 
+    gap: 0;
 }
 
+
+
 .slide {
-  min-width: 250px;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
+    min-width: 100%;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    position: relative;
+    overflow: hidden;
+    background: #fff; /* Fundo branco caso a imagem falhe */
+}
+
+/* O link precisa abraçar todo o conteúdo */
+.slide a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    height: 100%;
 }
 
 .slide img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
+    width: 100%;
+    height: 400px; /* Aumentei um pouco a altura para acomodar o texto */
+    object-fit: cover;
+    display: block;
 }
 
+/* O NOVO ESTILO DO TÍTULO (Sempre visível dentro da imagem) */
+/* 2. Para alinhar o TEXTO dentro da imagem para a esquerda */
 .slide p {
-  padding: 10px;
-  font-size: 14px;
+    position: absolute;
+    bottom: 0; /* Cola na base */
+    left: 0;
+    right: 0;
+    
+    /* Fundo degradê para garantir leitura sem tapar muito a foto */
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.6) 70%, transparent 100%);
+    
+    color: white;
+    margin: 0;
+    
+    /* Espaçamento interno maior na base */
+    padding: 60px 20px 20px 20px; 
+    
+    /* text-align: center;  */
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    
+    /* Garante que o texto não "vaze" e tenha uma sombra leve */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    
+    /* Importante: Mantenha opacity em 1 e remova transições de hover se existirem */
+    opacity: 1 !important; 
 }
+
+
+
+/* Removemos o efeito de hover anterior */
+.slide:hover p {
+    opacity: 1; /* Mantém sempre visível */
+}
+
+/* Um leve efeito de zoom na imagem ao passar o mouse, para dar interatividade */
+.slide:hover img {
+    transform: scale(1.03);
+    transition: transform 0.5s ease;
+}
+.slide img {
+    transition: transform 0.5s ease;
+}
+
+
+
 
 
 /* GRID RESPONSIVO */
