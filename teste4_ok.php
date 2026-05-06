@@ -295,13 +295,8 @@ body {
 
     <div class="banner">
 
-        <!-- IMAGEM GRANDE     <img src="img/labmenu_peq_1024x264.jpg" class="bg">    -->
-      <video autoplay muted loop playsinline class="bg">
-          <source src="img/video_lab_aluna.mp4" type="video/mp4">
-           Seu navegador não suporta vídeos.
-      </video>
-
-
+        <!-- IMAGEM GRANDE -->
+        <img src="img/labmenu_peq_1024x264.jpg" class="bg">
                 
         <!-- CONTAINER DO LOGO -->
         <div class="logo-box">
