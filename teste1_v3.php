@@ -699,43 +699,42 @@ body {
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu-list');
 
-// Abre/Fecha o menu hambúrguer no mobile
+// Abre/Fecha o menu principal (Hambúrguer)
 toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.classList.toggle('active');
 });
 
-// SUBMENU - Funciona em todos os dispositivos agora
+// SUBMENU (Clique no item Serviços)
 document.querySelectorAll('.has-sub > a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // Impede a navegação do link pai para poder abrir o submenu
-        e.preventDefault(); 
-        e.stopPropagation();
+        // Verifica se estamos no mobile (largura menor que 768px)
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Impede o link '#' de pular a página
+            e.stopPropagation();
 
-        const parent = link.parentElement;
+            const parent = link.parentElement;
 
-        // Fecha outros submenus que estiverem abertos (efeito acordeão)
-        document.querySelectorAll('.has-sub').forEach(item => {
-            if (item !== parent) {
-                item.classList.remove('active');
-            }
-        });
+            // Opcional: Fecha outros submenus abertos ao abrir um novo
+            document.querySelectorAll('.has-sub').forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                }
+            });
 
-        // Abre ou fecha o submenu atual
-        parent.classList.toggle('active');
+            // Ativa/Desativa o submenu atual
+            parent.classList.toggle('active');
+        }
     });
 });
 
-// Fecha tudo se clicar em qualquer lugar vazio da página
+// Fecha o menu se clicar em qualquer lugar fora dele
 document.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-        menu.classList.remove('active');
-    }
+    menu.classList.remove('active');
     document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
 });
+
 </script>
-
-
 
 
 </body>

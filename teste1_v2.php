@@ -25,6 +25,11 @@ body {
     box-sizing: border-box;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 /* BANNER 100% */
 .banner {
     position: relative;
@@ -173,15 +178,6 @@ body {
     font-weight: 400;
 }
 
-.logo-texto a {
-    text-decoration:none;    
-    color: inherit; /* Em vez de #00aaff, ele mantém a cor original */
-}
-
-/* No seu código, altere esta parte: */
-.logo-texto a:hover {
-    color: inherit; /* Em vez de #00aaff, ele mantém a cor original */
-}
 
 /* MENU */
 /*
@@ -198,7 +194,7 @@ body {
 
     width: 100%;
     display: flex;
-    justify-content: center;  /* Menu centralizado na div class menu  */
+    justify-content: center;
 
     left: 0;
 }
@@ -322,15 +318,8 @@ body {
 }
 
 
-/* 2. ADICIONE ESTA REGRA (para o clique funcionar no Desktop também) */
-.has-sub.active > .submenu {
-    display: block !important;
-}
-
-
-
 /* ========================= */
-/*     TABLET       */
+/* TABLET */
 /* ========================= */
 @media (max-width: 1024px) {
 
@@ -372,7 +361,7 @@ body {
 
 
 /* ========================= */
-/*        CELULAR     */
+/* CELULAR */
 /* ========================= */
 @media (max-width: 768px) {
 
@@ -411,8 +400,7 @@ body {
         width: calc(100% - 20px);
         display: flex;
         flex-direction: column;
-        align-items: flex-end;  
-        /*  align-items: flex-start;  */  /*  Inicio da Tela */
+        align-items: flex-end;
     }
 
     .menu-toggle {
@@ -448,8 +436,6 @@ body {
         display: none;
     }
 
-    /*  submenu do Celular */
-    /*
     .submenu {
         position: static;
         display: none;
@@ -459,70 +445,19 @@ body {
         border-radius: 0;
         background: rgba(255,255,255,0.12);
     }
-     */
 
-    .submenu {
-        position: static;
-        bottom: auto;
-        top: auto;
-        left: auto;
-
-        display: none;
-        width: 100%;
-        min-width: 100%;
-        padding: 0;
-
-        background: rgba(255,255,255,0.12);
-        border-radius: 0;
-    }
-
-
-
-    .menu-list .has-sub .submenu {
-        position: static !important;
-        top: auto !important;
-        bottom: auto !important;
-        left: auto !important;
-        right: auto !important;
-
-        display: none;
-        width: 100%;
-        min-width: 100%;
-        margin: 0;
-        padding: 0;
-
-        background: rgba(255,255,255,0.12);
-        border-radius: 0;
-    }
-
-    /*
     .has-sub.active .submenu {
         display: block !important;
     }
-        */
 
-    .has-sub.active .submenu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 100;
+    .submenu li a {
+        padding: 10px 25px;
     }
-
-
-
- /*   .submenu li a {   */
-        /*  padding: 10px 25px;  
-        padding: 5px 17px;*/
-  /*  }   */
-
-
-
-
 }
 
 
 /* ========================= */
-/*    CELULAR PEQUENO     */
+/* CELULAR PEQUENO */
 /* ========================= */
 @media (max-width: 480px) {
 
@@ -545,47 +480,6 @@ body {
     .linha2 {
         font-size: 13px;
     }
-
-    /*  submenu do Celular */
-    /*
-    .submenu {
-        position: static;
-        display: none;
-        width: 100%;
-        min-width: 100%;
-        padding: 0;
-        border-radius: 0;
-        background: rgba(255,255,255,0.12);
-    }
-     */
-
-    .submenu {
-        position: static;
-        bottom: auto;
-        top: auto;
-        left: auto;
-
-        display: none;
-        width: 100%;
-        min-width: 100%;
-        padding: 0;
-
-        background: rgba(255,255,255,0.12);
-        border-radius: 0;
-    }
-
-    .has-sub.active .submenu {
-        display: block !important;
-    }
-
-    .submenu li a {
-        /*  padding: 10px 25px;  */
-        padding: 5px 17px;
-    }
-
-
-
-
 }
 
 
@@ -616,22 +510,33 @@ body {
 
 
     <div class="logo-texto">
-        <span class="linha1"><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php">Departamento</a></span>
-        <span class="linha2">RPFX/ABC</span>
+        <span class="linha1">Departamento de Genética</span>
+        <span class="linha2">FMRP/USP</span>
     </div>
 
-   </div>
+        </div>
 
 
         <!-- MENU -->
         <nav class="menu">
+
             
             <button class="menu-toggle" aria-label="Abrir menu">☰</button>
 
             <ul class="menu-list">
-           
 
-                <li><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php"  target="_parent" >Início</a></li>
+            
+
+                <li><a href="#">Início</a></li>
+
+                <li class="has-sub">
+                    <a href="#" >Serviços ▾</a>
+                    <ul class="submenu">
+                        <li><a href="#">Genética Clínica</a></li>
+                        <li><a href="#">Exames</a></li>
+                        <li><a href="#">Pesquisa</a></li>
+                    </ul>
+                </li>
 
                 <li class="has-sub">
                     <a href="#">Departamento</a>
@@ -641,50 +546,11 @@ body {
                     </ul>
                 </li>
 
-                <li class="has-sub">
-                    <a href="equipe-docentes.php">Equipe</a>
-                    <ul class="submenu">
-                        <li><a href="equipe-docentes.php">Docentes</a></li>
-                        <li><a href="equipe-tecnicos.php">Técnicos</a></li>
-                        <li><a href="equipe-administrativos.php">Administrativos</a></li>
-                    </ul>
-                </li>
 
-                <li class="has-sub">
-                <a href="ensino-graduacao.php">Ensino</a>
-                <ul class="submenu">
-                    <li><a href="ensino-graduacao.php">Graduação</a></li>
-                    <li><a href="ensino-pos-graduacao.php">Pós-Graduação</a></li>
-                    <li><a href="ensino-disciplinas.php">Disciplinas</a></li>
-                </ul>
-                </li>
 
-                <li class="has-sub">
-                <a href="pesquisa-linhas.php">Pesquisa</a>
-                <ul class="submenu">
-                    <li><a href="pesquisa-linhas.php">Linhas de Pesquisa</a></li>
-                    <li><a href="pesquisa-projetos.php">Projetos</a></li>
-                    <li><a href="pesquisa-publicacoes.php">Publicações</a></li>
-                </ul>
-                </li>
+                <li><a href="#">Contato</a></li>
 
-                <li class="has-sub">
-                    <a href="laboratorios-genetica.php">Laboratórios</a>
-                    <ul class="submenu">
-                        <li><a href="laboratorios-genetica.php">Genética</a></li>
-                        <li><a href="laboratorios-biologia.php">Biologia Molecular</a></li>
-                        <li><a href="laboratorios-bioinformatica.php">Bioinformática</a></li>
-                    </ul>
-                </li>
 
-                <li class="has-sub">
-                    <a href="contato-localizacao.php">Contato</a>
-                    <ul class="submenu">
-                        <li><a href="contato-localizacao.php">Localização</a></li>
-                        <li><a href="contato-telefones.php">Telefones</a></li>
-                        <li><a href="contato-formulario.php">Formulário</a></li>
-                    </ul>
-                </li>
 
 
             </ul>
@@ -699,43 +565,42 @@ body {
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu-list');
 
-// Abre/Fecha o menu hambúrguer no mobile
+// Abre/Fecha o menu principal (Hambúrguer)
 toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.classList.toggle('active');
 });
 
-// SUBMENU - Funciona em todos os dispositivos agora
+// SUBMENU (Clique no item Serviços)
 document.querySelectorAll('.has-sub > a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // Impede a navegação do link pai para poder abrir o submenu
-        e.preventDefault(); 
-        e.stopPropagation();
+        // Verifica se estamos no mobile (largura menor que 768px)
+        if (window.innerWidth <= 768) {
+            e.preventDefault(); // Impede o link '#' de pular a página
+            e.stopPropagation();
 
-        const parent = link.parentElement;
+            const parent = link.parentElement;
 
-        // Fecha outros submenus que estiverem abertos (efeito acordeão)
-        document.querySelectorAll('.has-sub').forEach(item => {
-            if (item !== parent) {
-                item.classList.remove('active');
-            }
-        });
+            // Opcional: Fecha outros submenus abertos ao abrir um novo
+            document.querySelectorAll('.has-sub').forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                }
+            });
 
-        // Abre ou fecha o submenu atual
-        parent.classList.toggle('active');
+            // Ativa/Desativa o submenu atual
+            parent.classList.toggle('active');
+        }
     });
 });
 
-// Fecha tudo se clicar em qualquer lugar vazio da página
+// Fecha o menu se clicar em qualquer lugar fora dele
 document.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-        menu.classList.remove('active');
-    }
+    menu.classList.remove('active');
     document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
 });
+
 </script>
-
-
 
 
 </body>
