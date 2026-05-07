@@ -26,12 +26,22 @@ body {
 }
 
 /* BANNER 100% */
+/*
 .banner {
     position: relative;
     width: 100%;
-    /*  height: 320px;   */
-    height: 402px;
+      height: 320px;   
+        height: 402px;
 }
+*/
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 480px; /* Altere de 402px para 300px ou quanto desejar */
+     /*  overflow: hidden;  Garante que nada escape da caixa */
+}
+
 
 .banner::after {
     content: "";
@@ -163,13 +173,13 @@ body {
 
 /* Linha principal */
 .linha1 {
-    font-size: 26px;
+    font-size: 30px;
     font-weight: 600;
 }
 
 /* Linha menor */
 .linha2 {
-    font-size: 22px;
+    font-size: 26px;
     font-weight: 400;
 }
 
@@ -391,28 +401,70 @@ body {
         max-height: 75px;
     }
 
+    /*
     .logo-texto {
+        font-family: 'Montserrat', sans-serif;  
         transform: translate(48px, 8px);
         white-space: normal;
-    }
+    }  
 
     .linha1 {
         font-size: 18px;
         line-height: 1.1;
+        font-weight: 600;
     }
 
     .linha2 {
         font-size: 15px;
+        font-weight: 400;
+    }
+        */
+
+
+    .logo-texto {
+        position: absolute;
+        font-family: 'Montserrat', sans-serif;  
+        transform: translate(48px, 8px);
+
+        white-space: normal;
+
+        width: 280px;
+        line-height: 1.1;
     }
 
+    .linha1 {
+        font-size: 18px !important;
+        /*  line-height: 1.1;  */
+        font-weight: 600;
+    }
+
+    .linha2 {
+        font-size: 14px !important;
+        font-weight: 400;
+    }
+
+
+    /*
     .menu {
         right: 10px;
         bottom: 10px;
         width: calc(100% - 20px);
         display: flex;
         flex-direction: column;
-        align-items: flex-end;  
+        align-items: flex-end;  */
         /*  align-items: flex-start;  */  /*  Inicio da Tela */
+ /*   }   */
+
+    .menu {
+        position: absolute !important;
+         /*  top: 200px;   IMPORTANTE:  Ajuste esta altura para onde o botão ☰ deve ficar */
+        top: 80%; /* 👈 Ele sempre estará a 80% do topo do banner, não importa a altura */
+        bottom: auto;  /*   IMPORTANTE: desativa o fundo */
+        right: 10px;
+        width: calc(100% - 20px);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
     }
 
     .menu-toggle {
@@ -444,9 +496,11 @@ body {
         padding: 12px 15px;
     }
 
+   /*
     .has-sub:hover .submenu {
         display: none;
     }
+    */
 
     /*  submenu do Celular */
     /*
@@ -505,9 +559,9 @@ body {
         position: absolute;
         top: 100%;
         left: 0;
-        z-index: 100;
+       /* z-index: 100;   */
+          z-index: 999;
     }
-
 
 
  /*   .submenu li a {   */
@@ -578,18 +632,13 @@ body {
         display: block !important;
     }
 
-    .submenu li a {
+     .submenu li a {
         /*  padding: 10px 25px;  */
         padding: 5px 17px;
     }
 
 
-
-
 }
-
-
-
 </style>
 </head>
 
@@ -600,12 +649,15 @@ body {
 
     <div class="banner">
 
-        <!-- IMAGEM GRANDE     <img src="img/labmenu_peq_1024x264.jpg" class="bg">    -->
+        <!-- IMAGEM GRANDE     <img src="img/labmenu_peq_1024x264.jpg" class="bg">  
+                                 <source src="video/video_lab_aluna.mp4" type="video/mp4"> 
+        -->
       <video autoplay muted loop playsinline class="bg">
-          <source src="video/video_lab_aluna.mp4" type="video/mp4">
+          <source src="video/fundo_video_1.mp4" type="video/mp4">
            Seu navegador não suporta vídeos.
       </video>
 
+      
 
                 
         <!-- CONTAINER DO LOGO -->
@@ -616,7 +668,7 @@ body {
 
 
     <div class="logo-texto">
-        <span class="linha1"><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php">Departamento</a></span>
+        <span class="linha1"><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php">Departamento de Teste</a></span>
         <span class="linha2">RPFX/ABC</span>
     </div>
 
@@ -695,38 +747,325 @@ body {
 </header>
 
 
+<section class="rge-hero">
+  <div class="rge-hero-media">
+    <div class="rge-video-box">
+<video autoplay muted loop playsinline>
+  <source src="assets/img/video_1.mp4" type="video/mp4">
+</video>
+    </div>
+  </div>
+</section>
+
+<!--  <div class="rge-hero-content">
+    <div class="rge-info-card">
+	              <img src="assets/img/Logo_Depto-Gene-tica.png" alt="Departamento de Genética">
+      <span class="rge-card-label">Texto base</span>
+      <h2>Operações do departamento</h2>
+
+      <p>
+        Este espaço pode ser utilizado para apresentar, de forma estruturada,
+        as operações do Departamento de Genética, incluindo atividades de ensino,
+        pesquisa, suporte técnico-científico e gestão acadêmica.
+      </p>
+
+      <p>
+        Também pode abranger integração com programas de pós-graduação,
+        serviços laboratoriais especializados, colaboração institucional e
+        desenvolvimento de projetos científicos em diferentes áreas da genética.
+      </p>
+
+      <p>
+        Este conteúdo é provisório e deve ser posteriormente substituído pelo
+        texto institucional oficial do departamento.
+      </p> 
+    </div>
+  </div>-->
+
+
+<main>
+  <section id="apresentacao">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Apresentação</span>
+        <h2>Departamento de Genética da FMRP/USP</h2>
+        <p>
+          A proposta desta abertura valoriza a identidade institucional do departamento,
+          organizando o conteúdo em blocos mais limpos, responsivos e de fácil navegação,
+          sem perder a abrangência das informações disponíveis na página original.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <div class="card">
+          <h3 style="margin-top:0;color:var(--primary)">Conheça nossa história</h3>
+          <p style="margin-bottom:0;color:var(--muted)">
+            Espaço de destaque para apresentação histórica do departamento, chefias,
+            trajetória institucional e sua relevância para a FMRP/USP.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;color:var(--primary)">Estrutura do portal</h3>
+          <p style="margin-bottom:0;color:var(--muted)">
+            O conteúdo pode ser organizado por grandes eixos: Departamento, Equipe,
+            Genética Médica, Ensino, Pesquisa e Inovação, Administrativo e Laboratórios.
+          </p>
+        </div>
+      </div>
+
+      <div class="metrics">
+        <div class="metric">
+          <span class="num">+200</span>
+          <span class="label">Dissertações de Mestrado defendidas e aprovadas</span>
+        </div>
+        <div class="metric">
+          <span class="num">+300</span>
+          <span class="label">Teses de Doutorado defendidas e aprovadas</span>
+        </div>
+        <div class="metric">
+          <span class="num">18</span>
+          <span class="label">Docentes atualmente credenciados no Programa</span>
+        </div>
+      </div>
+	  
+      <div class="intro-grid">
+        <div class="card">
+          <h3 style="margin-top:0;color:var(--primary)">Notícias</h3>
+          <p style="margin-bottom:0;color:var(--muted)">
+								<div style="font-size:16px; line-height: 1.2;" class="pb-2">
+																	</div>
+															<div style="font-size:16px; line-height: 1.2;" class="pb-2">
+																	</div>
+																									
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 style="margin-top:0;color:var(--primary)">Defesas - Palestras</h3>
+																										        <div class="noticia-meta">
+                <div class="meta-item">
+					
+					<span class="meta-valor">18/05-14:00</span>
+
+					<span class="meta-valor"><a class="text-secondary" href="mostra_tese_agendada.php?cod=1098" style="text-decoration: none;">
+						GUSTAVO RONCONI ROZA</a></span>
+										
+					<span class="meta-label">T&iacute;tulo:
+					<span class="meta-valor">													T&iacute;tulo: A Mutação del3554G no Gene <i>Aire</i> altera a Si ... 					<a class="text-secondary" href="mostra_tese_agendada.php?cod=1098" style="text-decoration: none;">mais</a></div>
+</span></span>	
+										
+                </div>
+
+        </div>
+											
+										
+																														        </div>
+      </div>
+
+	  
+	  
+    </div>
+  </section>
+
+  <section id="estrutura">
+    <div class="container">
+      <div class="section-head">
+        <span class="tag">Navegação institucional</span>
+        <h2>Mapa de conteúdo</h2>
+        <p>
+          Organização visual das áreas informativas existentes na página do departamento.
+        </p>
+      </div>
+
+      <div class="menu-grid">
+        <div class="menu-block">
+          <h3>Departamento</h3>
+          <ul>
+            <li>Histórico</li>
+            <li>Chefias</li>
+            <li>Original</li>
+          </ul>
+        </div>
+
+        <div class="menu-block">
+          <h3>Equipe</h3>
+          <ul>
+            <li>Docentes</li>
+            <li>Funcionários</li>
+          </ul>
+        </div>
+
+        <div class="menu-block">
+          <h3>Genética Médica</h3>
+          <ul>
+            <li>Ambulatórios</li>
+            <li>Métricas</li>
+          </ul>
+        </div>
+
+        <div class="menu-block">
+          <h3>Ensino</h3>
+          <ul>
+            <li>Graduação</li>
+            <li>Pós-Graduação</li>
+          </ul>
+        </div>
+
+        <div class="menu-block">
+          <h3>Pesquisa e Inovação</h3>
+          <ul>
+            <li>Serviços</li>
+            <li>Laboratórios</li>
+          </ul>
+        </div>
+
+        <div class="menu-block">
+          <h3>Administrativo</h3>
+          <ul>
+            <li>Formulários</li>
+            <li>Pedido de Providência</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+ <footer class="footer">
+
+  <div class="footer-logo">
+    <img src="assets/img/Logo_Depto-Gene-tica.png" alt="Departamento de Genética">
+  </div>
+
+  <div class="footer-box">
+
+    <div class="footer-menus">
+      <div>
+        <h4>Áreas do portal</h4>
+        <ul>
+          <li>Departamento</li>
+          <li>Equipe</li>
+          <li>Genética Médica</li>
+          <li>Ensino</li>
+          <li>Pesquisa e Inovação</li>
+          <li>Administrativo</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Seções em destaque</h4>
+        <ul>
+          <li>Histórico</li>
+          <li>Chefias</li>
+          <li>Graduação</li>
+          <li>Pós-Graduação</li>
+          <li>Serviços</li>
+          <li>Laboratórios</li>
+        </ul>
+      </div>
+
+      <div class="footer-contato">
+        <h4>Contato</h4>
+        <p>
+          <strong>Departamento de Genética • FMRP/USP</strong><br>
+          Av. Bandeirantes, 3900<br>
+          Monte Alegre - Ribeirão Preto - SP - Brasil<br>
+          CEP: 14049-900<br>
+          Telefone: 55 (16) 3315-3293<br>
+          e-mail:
+          <a href="mailto:secgen@fmrp.usp.br">secgen@fmrp.usp.br</a>
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14882.224524521393!2d-47.86840796470639!3d-21.170055606189823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94b9bdc103db23cd%3A0xc727b59938bf0833!2sDepartamento%20de%20Gen%C3%A9tica!5e0!3m2!1spt-BR!2sbr!4v1588863834051!5m2!1spt-BR!2sbr"
+      frameborder="0"
+      allowfullscreen=""
+      aria-hidden="false"
+      tabindex="0">
+    </iframe>
+  </div>
+
+</footer>
 <script>
+function toggleTexto(el){
+  const container = el.parentElement;
+  container.classList.toggle("expandido");
+
+  if(container.classList.contains("expandido")){
+    el.innerText = "Ler menos";
+  }else{
+    el.innerText = "Ler mais";
+  }
+}
+</script>
+<script>
+  function toggleRgeMenu() {
+    var menu = document.getElementById('rgeMenu');
+    menu.classList.toggle('open');
+  }
+</script>
+<script>
+const btnTopo = document.getElementById("btnTopo");
+
+// mostrar botão ao rolar
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    btnTopo.style.display = "block";
+  } else {
+    btnTopo.style.display = "none";
+  }
+};
+
+// ação de subir com suavidade
+btnTopo.onclick = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+
+
+/******  PARTE DO ANTERIOR   ***********/
+
+
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu-list');
 
-// Abre/Fecha o menu hambúrguer no mobile
+// Botão hambúrguer (Celular)
 toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.classList.toggle('active');
 });
 
-// SUBMENU - Funciona em todos os dispositivos agora
+// SUBMENU - Agora para todos os tamanhos de tela
 document.querySelectorAll('.has-sub > a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // Impede a navegação do link pai para poder abrir o submenu
+        // SEMPRE impede o link de navegar para abrir o submenu no clique
         e.preventDefault(); 
         e.stopPropagation();
 
         const parent = link.parentElement;
 
-        // Fecha outros submenus que estiverem abertos (efeito acordeão)
+        // Fecha outros submenus que estiverem abertos
         document.querySelectorAll('.has-sub').forEach(item => {
             if (item !== parent) {
                 item.classList.remove('active');
             }
         });
 
-        // Abre ou fecha o submenu atual
+        // Abre/Fecha o submenu clicado
         parent.classList.toggle('active');
     });
 });
 
-// Fecha tudo se clicar em qualquer lugar vazio da página
+// Fecha tudo se clicar fora do menu
 document.addEventListener('click', () => {
     if (window.innerWidth <= 768) {
         menu.classList.remove('active');
@@ -734,8 +1073,6 @@ document.addEventListener('click', () => {
     document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
 });
 </script>
-
-
 
 
 </body>
