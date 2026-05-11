@@ -36,6 +36,52 @@ body {
 }
 */
 
+/* HEADER FIXO AO ROLAR */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+}
+
+/* quando fixar, deixa o banner menor */
+header.fixo .banner {
+    height: 90px;
+    transition: 0.4s;
+}
+
+/* esconde o vídeo quando rolar */
+header.fixo .bg,
+header.fixo .banner::after {
+    display: none;
+}
+
+/* fundo do header fixo */
+header.fixo .banner {
+    background: rgba(10, 20, 35, 0.96);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+}
+
+/* ajusta logo */
+header.fixo .logo {
+    max-height: 65px;
+}
+
+/* ajusta texto */
+header.fixo .linha1 {
+    font-size: 22px;
+}
+
+header.fixo .linha2 {
+    font-size: 17px;
+}
+
+/* coloca o menu dentro do header fixo */
+header.fixo .menu {
+    bottom: 15px;
+}
+
+
 
 .banner {
     position: relative;
@@ -822,42 +868,7 @@ body {
 }
 
 
-html {
-    scroll-behavior: smooth;
-}
 
-.btn-topo {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #1b3556;
-    color: white;
-
-    text-decoration: none;
-    font-size: 26px;
-    font-weight: bold;
-
-    border-radius: 50%;
-
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-
-    z-index: 99999;
-
-    transition: 0.3s;
-}
-
-.btn-topo:hover {
-    background: #0077cc;
-    transform: translateY(-4px);
-}
 
 
 
@@ -900,15 +911,6 @@ html {
         gap: 12px;
         padding: 8px 12px;
     }
-
-  .btn-topo {
-        right: 16px;
-        bottom: 16px;
-        width: 42px;
-        height: 42px;
-        font-size: 22px;
-    }
-
 }
 
 
@@ -1029,36 +1031,6 @@ html {
         padding: 12px 15px;
     }
 
-
-       .menu-list.active {
-        display: flex !important;
-    }
-
-    .menu-list .has-sub .submenu {
-        display: none !important;
-        position: static !important;
-        width: 100% !important;
-        min-width: 100% !important;
-        background: rgba(255,255,255,0.12) !important;
-        border-radius: 0 !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-
-    /*
-    .menu-list .has-sub.active .submenu {
-        display: block !important;
-        position: static !important;
-    }
-   */
-    .menu-list .submenu li a {
-        padding: 10px 28px !important;
-    }
-
-
-
-
    /*
     .has-sub:hover .submenu {
         display: none;
@@ -1112,38 +1084,19 @@ html {
         border-radius: 0;
     }
 
-
-
-     .menu-list .has-sub.active .submenu {
-        display: block !important;
-        position: static !important;
-        width: 100%;
-        min-width: 100%;
-        background: rgba(255,255,255,0.12);
-        border-radius: 0;
-        padding: 0;
-        margin: 0;
-        z-index: auto;
-    }
-
-    .menu-list .has-sub .submenu li a {
-        padding: 10px 25px;
-    }
-
-
     /*
     .has-sub.active .submenu {
         display: block !important;
     }
-
+        */
 
     .has-sub.active .submenu {
         position: absolute;
         top: 100%;
         left: 0;
+       /* z-index: 100;   */
           z-index: 999;
     }
-                  */
 
 
  /*   .submenu li a {   */
@@ -1254,60 +1207,48 @@ html {
         padding: 5px 17px;
     }
 
-  .btn-topo {
-        right: 16px;
-        bottom: 16px;
-        width: 42px;
-        height: 42px;
-        font-size: 22px;
-    }
-
 
 }
 </style>
 <script>
-
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu-list');
 
-/* abrir/fechar menu no celular */
-toggle.addEventListener('click', function(e) {
-    e.preventDefault();
+// Botão hambúrguer (Celular)
+toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.classList.toggle('active');
 });
 
-/* abrir submenu no clique */
-document.querySelectorAll('.has-sub > a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
+// SUBMENU - Agora para todos os tamanhos de tela
+document.querySelectorAll('.has-sub > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // SEMPRE impede o link de navegar para abrir o submenu no clique
+        e.preventDefault(); 
         e.stopPropagation();
 
-        const item = this.parentElement;
+        const parent = link.parentElement;
 
-        document.querySelectorAll('.has-sub').forEach(function(outro) {
-            if (outro !== item) {
-                outro.classList.remove('active');
+        // Fecha outros submenus que estiverem abertos
+        document.querySelectorAll('.has-sub').forEach(item => {
+            if (item !== parent) {
+                item.classList.remove('active');
             }
         });
 
-        item.classList.toggle('active');
+        // Abre/Fecha o submenu clicado
+        parent.classList.toggle('active');
     });
 });
 
-/* não fechar quando clicar dentro do menu */
-document.querySelector('.menu').addEventListener('click', function(e) {
-    e.stopPropagation();
+// Fecha tudo se clicar fora do menu
+document.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+        menu.classList.remove('active');
+    }
+    document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
 });
 
-/* fecha só quando clicar fora */
-document.addEventListener('click', function() {
-    menu.classList.remove('active');
-
-    document.querySelectorAll('.has-sub').forEach(function(item) {
-        item.classList.remove('active');
-    });
-});
 
 
 
@@ -1336,7 +1277,8 @@ window.addEventListener('scroll', () => {
 </head>
 
 <body>
-<div id="topo"></div>
+
+
 <header>
 
     <div class="banner">
@@ -1653,7 +1595,6 @@ window.addEventListener('scroll', () => {
     </div>
 
 </footer>
-<a href="#topo" class="btn-topo" aria-label="Voltar ao topo">↑</a>
 </body>
 </html>
 

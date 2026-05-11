@@ -1,5 +1,5 @@
 <?php
-//  Teste v20260507
+//  Teste v20260508
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -103,11 +103,9 @@ body {
 
 .logo-box {
     position: absolute;
-
     /*  top: 50%;
     transform: translateY(-50%);
     */
-
     /* margin-left: 10px;  */
     margin-top: 4px;
     margin-left: 20px;
@@ -115,17 +113,15 @@ body {
     /*  width: 25%;  */
     width: auto;
     height: auto;
-
     display: flex;
-    /*  align-items: center;   */
-    align-items: flex-start;  
-
+    /*  align-items: flex-start;    */
+    
+    align-items: center;  /*  Alinha verticalmente no centro  */
     /*  justify-content: center;  
     *    justify-content: flex-start;
     */
-   
-
-     gap: 12px; /* espaço entre logo e texto */
+    /*   gap: 12px;  espaço entre logo e texto */
+    gap: 15px; 
 
     color: white;
 
@@ -141,12 +137,19 @@ body {
     */
 }
 
+/* .logo-box {  
+    display: flex;
+    align-items: center;   Alinha verticalmente no centro 
+    gap: 15px;
+}
+*/
+
+
+
 /* Garante que o logo e o menu fiquem ACIMA dessa camada escura */
 .logo-box, .menu {
     z-index: 2;
 }
-
-
 
 /* IMAGEM DO LOGO */
 .logo {
@@ -161,15 +164,26 @@ body {
 }
 
 .logo-texto {
-    position: absolute; /* 🔥 faz sobrepor */
+     /*  position: absolute; 🔥 faz sobrepor */
+    position: static;  /* Remove o translate  */
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;  
      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
      /*  margin-top: 4px;  */
-      transform: translate(80px,4px); /* ajuste fino */    
+      /*  transform: translate(80px,4px);  ajuste fino */    
       white-space: nowrap; 
+      transform: none;
 }
+
+/*
+.logo-texto {
+    position: static;  Remove o translate 
+    transform: none;
+}
+*/
+
+
 
 /* Linha principal */
 .linha1 {
@@ -213,6 +227,14 @@ body {
     left: 0;
 }
 
+.menu.fixed-nav {
+    position: fixed;
+    top: 0;
+    bottom: auto;
+    background: rgba(0, 0, 0, 0.9);
+    height: 60px;
+}
+
 
 /* MENU HORIZONTAL */
 .menu-list {
@@ -222,10 +244,14 @@ body {
     margin: 0;
     padding: 10px 15px;
 
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    backdrop-filter: blur(6px);
+ /*   background: rgba(0,0,0,0.5);  */
+    background: rgba(255, 255, 255, 0.1); /* Fundo mais claro e transparente */
+   /*  border-radius: 10px;
+    backdrop-filter: blur(6px);  */
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Borda "de vidro" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
+
 
 
 /* LINKS */
@@ -294,6 +320,12 @@ body {
     display: block;
 }
 
+.has-sub > a::after {
+    content: ' ▼';
+    font-size: 10px;
+    vertical-align: middle;
+    opacity: 0.7;
+}
 
 .menu-toggle {
     display: none;
