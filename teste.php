@@ -167,7 +167,7 @@ body {
     font-family: 'Montserrat', sans-serif;  
      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
      /*  margin-top: 4px;  */
-      transform: translate(60px,4px); /* ajuste fino */    
+      transform: translate(80px,4px); /* ajuste fino */    
       white-space: nowrap; 
 }
 
@@ -213,8 +213,72 @@ body {
     left: 0;
 }
 
+.menu.fixed-nav {
 
-/* MENU HORIZONTAL */
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 9999;
+
+    background: rgba(10, 20, 35, 0.92);
+
+    backdrop-filter: blur(8px);
+
+    -webkit-backdrop-filter: blur(8px);
+
+    padding: 10px 0;
+
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+
+    animation: slideDown 0.35s ease;
+}
+
+.menu.fixed-nav .menu-list {
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/***    ANIMACAO   ****/
+@keyframes slideDown {
+
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+/***   MENU HORIZONTAL   ****/
+/*
+.menu-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+}
+*/
+
+
 .menu-list {
     list-style: none;
     display: flex;
@@ -222,26 +286,16 @@ body {
     margin: 0;
     padding: 10px 15px;
 
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    backdrop-filter: blur(6px);
-}
-
-.menu-list {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin: 0;
-    padding: 10px 15px;
-
-    background: rgba(0,0,0,0.5);
-    border-radius: 10px;
-    backdrop-filter: blur(6px);
+ /*   background: rgba(0,0,0,0.5);  */
+    background: rgba(255, 255, 255, 0.1); /* Fundo mais claro e transparente */
+   /*  border-radius: 10px;
+    backdrop-filter: blur(6px);  */
+        border: 1px solid rgba(255, 255, 255, 0.2); /* Borda "de vidro" */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 
-
-/* LINKS */
+/***   LINKS   ****/
 .menu-list a {
     color: #fff;
     text-decoration: none;
@@ -251,6 +305,8 @@ body {
 .menu-list li {
     position: relative;
 }
+
+
 
 .submenu {
     list-style: none; /* 👈 Adicione esta linha aqui */
@@ -340,6 +396,422 @@ body {
 
 
 /* ========================= */
+/*        CONTENT            */
+/* ========================= */
+
+.conteudo {
+    background: #f4f6f9;
+    padding: 60px 5%;
+}
+
+/* TÍTULOS */
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title h2 {
+    font-size: 36px;
+    color: #1b3556;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.section-title p {
+    color: #666;
+    font-size: 17px;
+}
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-content h3 {
+    margin-top: 0;
+    color: #1b3556;
+    font-size: 22px;
+}
+
+.card-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.card-content a {
+    display: inline-block;
+    margin-top: 14px;
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ÁREA INSTITUCIONAL */
+
+.institucional {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.institucional img {
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.institucional-texto h2 {
+    font-size: 34px;
+    color: #1b3556;
+    margin-bottom: 20px;
+}
+
+.institucional-texto p {
+    line-height: 1.8;
+    color: #444;
+    font-size: 17px;
+}
+
+/* NÚMEROS */
+
+.numeros {
+    margin-top: 80px;
+    background: linear-gradient(135deg, #1b3556, #244b7a);
+    padding: 60px 30px;
+    border-radius: 18px;
+    color: white;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.numero h3 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.numero p {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+
+
+/* ========================= */
+/*      NOTICIAS            */
+/* ========================= */
+.noticias {
+    padding: 70px 5%;
+    background: #ffffff;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.noticia-card {
+    background: #f4f6f9;
+    padding: 28px;
+    border-radius: 14px;
+    border-left: 5px solid #1b3556;
+    box-shadow: 0 5px 16px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.noticia-card:hover {
+    transform: translateY(-6px);
+}
+
+.noticia-card h3 {
+    color: #1b3556;
+    margin-top: 12px;
+}
+
+.noticia-card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.noticia-card a {
+    color: #0077cc;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tag {
+    background: #1b3556;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+
+
+
+/* ========================= */
+/*        ANCORA TOP           */
+/* ========================= */
+html {
+    scroll-behavior: smooth;
+}
+
+.btn-topo {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1b3556;
+    color: white;
+
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+
+    border-radius: 50%;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+
+    z-index: 99999;
+
+    transition: 0.3s;
+}
+
+.btn-topo:hover {
+    background: #0077cc;
+    transform: translateY(-4px);
+}
+
+
+
+/* ========================= */
+/*      CARROSSEL            */
+/* ========================= */
+.carrossel-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 0;
+
+    background: #f4f6f9;
+}
+
+/****  CONTAINER   ****/
+.carrossel {
+    position: relative;
+    width: 60%;
+    max-width: 1200px;
+
+    height: 320px;
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #12263f;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/****   SLIDES   ****/
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.8s ease;
+}
+
+.slide.ativo {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+}
+
+/*  SLIDE IMAGEM */
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+
+    display: block;
+}
+
+/***  SLIDE  TEXTO  ****/
+.slide-texto {
+    position: absolute;
+    left: 40px;
+    bottom: 35px;
+
+    color: white;
+
+    z-index: 5;
+
+    max-width: 70%;
+
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+}
+
+.slide-texto h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.slide-texto p {
+    font-size: 18px;
+}
+
+/* BOTÕES */
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    border: none;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+
+.card,
+.noticia-card,
+.institucional,
+.numero {
+    animation: subirSuave 0.8s ease forwards;
+}
+
+@keyframes subirSuave {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* ========================= */
+/*          FOOTER           */
+/* ========================= */
+
+.footer {
+    background: #12263f;
+    color: #ddd;
+    padding: 60px 5% 30px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 40px;
+}
+
+.footer h3 {
+    color: white;
+    margin-bottom: 18px;
+    font-size: 22px;
+}
+
+.footer p,
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.footer a:hover {
+    color: #00aaff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+}
+
+
+
+
+
+/* ========================= */
 /*     TABLET       */
 /* ========================= */
 @media (max-width: 1024px) {
@@ -398,7 +870,9 @@ body {
     }
 
     .logo {
-        max-height: 75px;
+        max-height: 75px;  
+        object-fit: contain; /* 🔥 NÃO DEFORMA */
+        margin-left:2px;
     }
 
     /*
@@ -569,6 +1043,63 @@ body {
         padding: 5px 17px;*/
   /*  }   */
 
+ 
+    /* ========================= */
+    /*      CARROSSEL            */
+    /* ========================= */
+    .carrossel-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        background-color:#FFFFFF;
+        margin-bottom: 16px 
+    }  
+ 
+ 
+    .carrossel {
+        position: relative;
+        width: 100%;
+        visibility: visible; /* Este item aparecerá, mesmo com o pai escondido! */
+        background-color:#FFFFFF;
+        /*
+        max-width: 1200px;
+
+        height: 320px;
+        overflow: hidden;
+
+        border-radius: 18px;
+
+        background: #12263f;
+
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+        margin-left: auto;
+        margin-right: auto;
+        */
+    }
+
+    /***   SLIDE IMAGEM    ****/
+    .slide img {
+        width: 100%;
+        height: 100%;
+        /**  
+        *   Se você quiser que a imagem preencha todo o espaço do 
+        *    carrossel, mude no seu CSS de contain para cover.
+        *   object-fit: contain;
+        */
+        object-fit: cover;
+    }
+
+
+
+    .prev {
+        left: 2%;
+    }
+
+    .next {
+        right: 2%;
+    }
 
 
 
@@ -640,11 +1171,11 @@ body {
 
 }
 </style>
+
+
 </head>
-
 <body>
-
-
+<div id="topo"></div>
 <header>
 
     <div class="banner">
@@ -657,18 +1188,16 @@ body {
            Seu navegador não suporta vídeos.
       </video>
 
-      
-
                 
         <!-- CONTAINER DO LOGO -->
         <div class="logo-box">
             <!-- LOGO AGORA DENTRO DA IMAGEM 
              <img  src="img/logo_Depto_Genetica_transp_alt260_sem_texto.png" class="logo">   -->
-             <img  src="img/logo_52x108.png" class="logo">  
+             <img  src="img/logo_98x204.png" class="logo">  
 
 
     <div class="logo-texto">
-        <span class="linha1"><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php">Departamento de Teste</a></span>
+        <span class="linha1"><a href="https://sol.fmrp.usp.br/trge/teste.php">Departamento de Teste</a></span>
         <span class="linha2">RPFX/ABC</span>
     </div>
 
@@ -683,7 +1212,7 @@ body {
             <ul class="menu-list">
            
 
-                <li><a href="https://sol.fmrp.usp.br/testes/trge/teste1.php"  target="_parent" >Início</a></li>
+                <li><a href="https://sol.fmrp.usp.br/trge/teste.php"  target="_parent" >Início</a></li>
 
                 <li class="has-sub">
                     <a href="#">Departamento</a>
@@ -747,47 +1276,317 @@ body {
 </header>
 
 
+<!-- ========================= -->
+<!--        CONTEÚDO           -->
+<!-- ========================= -->
+
+<section class="conteudo">
+
+    <!-- TÍTULO -->
+    <div class="section-title">
+        <h2>Pesquisa, Ensino e Inovação</h2>
+        <p>Excelência acadêmica e científica voltada ao desenvolvimento da sociedade.</p>
+    </div>
+
+    <!-- CARDS -->
+    <div class="cards">
+
+        <div class="card">
+            <img src="img/pesquisa.jpg" alt="">
+            <div class="card-content">
+                <h3>Linhas de Pesquisa</h3>
+                <p>Projetos científicos avançados em genética, biologia molecular e bioinformática.</p>
+                <a href="#">Saiba mais →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/laboratorio.jpg" alt="">
+            <div class="card-content">
+                <h3>Laboratórios</h3>
+                <p>Infraestrutura moderna para desenvolvimento de pesquisas e formação acadêmica.</p>
+                <a href="#">Conheça →</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="img/alunos.jpg" alt="">
+            <div class="card-content">
+                <h3>Pós-Graduação</h3>
+                <p>Programas de excelência reconhecidos nacional e internacionalmente.</p>
+                <a href="#">Ver programas →</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ÁREA INSTITUCIONAL -->
+
+    <div class="institucional">
+
+        <img src="img/universidade.jpg" alt="Universidade">
+
+        <div class="institucional-texto">
+
+            <h2>Compromisso com a Ciência</h2>
+
+            <p>
+                O Departamento atua na formação de recursos humanos altamente qualificados,
+                promovendo integração entre ensino, pesquisa e extensão universitária.
+            </p>
+
+            <p>
+                Nossos projetos envolvem colaboração nacional e internacional,
+                fortalecendo o avanço científico e tecnológico nas áreas biomédicas.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- NÚMEROS -->
+
+    <div class="numeros">
+
+        <div class="numero">
+            <h3>25+</h3>
+            <p>Docentes</p>
+        </div>
+
+        <div class="numero">
+            <h3>40+</h3>
+            <p>Projetos</p>
+        </div>
+
+        <div class="numero">
+            <h3>300+</h3>
+            <p>Publicações</p>
+        </div>
+
+        <div class="numero">
+            <h3>120+</h3>
+            <p>Alunos</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NOTICIAS  -->
+<section class="noticias">
+    <div class="section-title">
+        <h2>Notícias e Defesas</h2>
+        <p>Acompanhe as principais novidades, teses, dissertações e eventos acadêmicos.</p>
+    </div>
+
+    <div class="noticias-grid">
+
+        <article class="noticia-card">
+            <span class="tag">Tese</span>
+            <h3>Defesa de Doutorado em Genética</h3>
+            <p>Pesquisa aborda novos marcadores genéticos aplicados à saúde humana.</p>
+            <a href="#">Ler mais →</a>
+        </article>
+
+        <article class="noticia-card">
+            <span class="tag">Evento</span>
+            <h3>Simpósio de Bioinformática</h3>
+            <p>Encontro reúne pesquisadores, docentes e alunos da pós-graduação.</p>
+            <a href="#">Ler mais →</a>
+        </article>
+
+        <article class="noticia-card">
+            <span class="tag">Dissertação</span>
+            <h3>Nova dissertação defendida</h3>
+            <p>Trabalho apresenta avanços em biologia molecular e análise genômica.</p>
+            <a href="#">Ler mais →</a>
+        </article>
+
+    </div>
+</section>
+<!-- FINAL - NOTICIAS  -->
+
+
+<!-- CARROSSEL   -->
+<div class="carrossel-wrapper">
+
+    <section class="carrossel">
+
+        <div class="slide ativo">
+
+            <img src="img/carrossel/carrossel1_366x400.png" alt="">
+
+            <div class="slide-texto">
+                <h2>Excelência em Ensino e Pesquisa</h2>
+                <p>Formação acadêmica integrada à inovação científica.</p>
+            </div>
+
+        </div>
+
+        <div class="slide">
+
+            <img src="img/carrossel/carrossel2_364x400.png" alt="">
+
+            <div class="slide-texto">
+                <h2>Genética e Bioinformática</h2>
+                <p>Pesquisa e inovação científica.</p>
+            </div>
+
+        </div>
+
+        <button class="carrossel-btn prev">&#10094;</button>
+        <button class="carrossel-btn next">&#10095;</button>
+
+    </section>
+
+</div>
+
+
+
+
+<!-- ========================= -->
+<!--          FOOTER           -->
+<!-- ========================= -->
+
+<footer class="footer">
+
+    <div class="footer-grid">
+
+        <div>
+            <h3>Departamento</h3>
+
+            <p>
+                Departamento de Teste<br>
+                RPFX/ABC
+            </p>
+
+            <p>
+                Universidade Exemplo<br>
+                Ribeirão Preto - SP
+            </p>
+        </div>
+
+        <div>
+            <h3>Links Rápidos</h3>
+            <p><a href="#">Graduação</a></p>
+            <p><a href="#">Pós-Graduação</a></p>
+            <p><a href="#">Pesquisa</a></p>
+            <p><a href="#">Laboratórios</a></p>
+        </div>
+
+        <div>
+            <h3>Contato</h3>
+
+            <p>📞 (16) 0000-0000</p>
+            <p>✉ contato@universidade.br</p>
+            <p>📍 Ribeirão Preto - SP</p>
+        </div>
+
+        <div>
+            <h3>Redes Sociais</h3>
+
+            <p><a href="#">Instagram</a></p>
+            <p><a href="#">Facebook</a></p>
+            <p><a href="#">YouTube</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Departamento de Teste - Todos os direitos reservados.
+    </div>
+
+</footer>
+
+
+
 <script>
+// --- LÓGICA DO MENU ---
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.menu-list');
 
-// Botão hambúrguer (Celular)
 toggle.addEventListener('click', (e) => {
     e.stopPropagation();
     menu.classList.toggle('active');
 });
 
-// SUBMENU - Agora para todos os tamanhos de tela
 document.querySelectorAll('.has-sub > a').forEach(link => {
     link.addEventListener('click', (e) => {
-        // SEMPRE impede o link de navegar para abrir o submenu no clique
         e.preventDefault(); 
         e.stopPropagation();
-
         const parent = link.parentElement;
-
-        // Fecha outros submenus que estiverem abertos
         document.querySelectorAll('.has-sub').forEach(item => {
-            if (item !== parent) {
-                item.classList.remove('active');
-            }
+            if (item !== parent) item.classList.remove('active');
         });
-
-        // Abre/Fecha o submenu clicado
         parent.classList.toggle('active');
     });
 });
 
-// Fecha tudo se clicar fora do menu
 document.addEventListener('click', () => {
-    if (window.innerWidth <= 768) {
-        menu.classList.remove('active');
-    }
+    if (window.innerWidth <= 768) menu.classList.remove('active');
     document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
+});
+
+
+// --- LÓGICA DO CARROSSEL (ADICIONE ISSO AQUI) ---
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const btnPrev = document.querySelector('.carrossel-btn.prev');
+    const btnNext = document.querySelector('.carrossel-btn.next');
+    let slideAtual = 0;
+    let tempoIntervalo = 5000; // 5 segundos para trocar sozinho
+    let autoPlay;
+
+    function mostrarSlide(n) {
+        // Remove a classe 'ativo' de todos
+        slides.forEach(s => s.classList.remove('ativo'));
+        
+        // Lógica de Loop:
+        // Se for o último e clicar em 'next', volta para o primeiro (0)
+        // Se for o primeiro e clicar em 'prev', vai para o último
+        slideAtual = (n + slides.length) % slides.length;
+        
+        // Adiciona classe ao slide selecionado
+        slides[slideAtual].classList.add('ativo');
+    }
+
+    function proximoSlide() {
+        mostrarSlide(slideAtual + 1);
+    }
+
+    function slideAnterior() {
+        mostrarSlide(slideAtual - 1);
+    }
+
+    // Eventos dos botões
+    btnNext.addEventListener('click', () => {
+        proximoSlide();
+        resetarTimer();
+    });
+
+    btnPrev.addEventListener('click', () => {
+        slideAnterior();
+        resetarTimer();
+    });
+
+    // Iniciar auto-play
+    function iniciarTimer() {
+        autoPlay = setInterval(proximoSlide, tempoIntervalo);
+    }
+
+    function resetarTimer() {
+        clearInterval(autoPlay);
+        iniciarTimer();
+    }
+
+    iniciarTimer();
 });
 </script>
 
 
+
+<a href="#topo" class="btn-topo" aria-label="Voltar ao topo">↑</a>
 </body>
 </html>
 

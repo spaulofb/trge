@@ -8,17 +8,14 @@ if ($_POST) {
     $stmt = $pdo->prepare("SELECT * FROM usuarios WHERE usuario = ?");
     $stmt->execute([$_POST['usuario']]);
     $user = $stmt->fetch();
-    //
-    /**   Verificar USUARIO e SENHA   ****/   
+
     if ($user && password_verify($_POST['senha'], $user['senha'])) {
         $_SESSION['logado'] = true;
         header("Location: admin.php");
     } else {
         $erro = "Usuário ou senha inválidos!";
-    } 
-    //
-} 
-//
+    }
+}
 ?>
 <form method="POST">
     <h2>Login Restrito</h2>

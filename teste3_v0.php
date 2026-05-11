@@ -1,5 +1,5 @@
 <?php
-//  Teste v20260508
+//  Teste v20260507
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,7 +11,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="js/carrossel.js" defer></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');    
 
@@ -35,7 +34,6 @@ body {
         height: 402px;
 }
 */
-
 
 .banner {
     position: relative;
@@ -105,9 +103,11 @@ body {
 
 .logo-box {
     position: absolute;
+
     /*  top: 50%;
     transform: translateY(-50%);
     */
+
     /* margin-left: 10px;  */
     margin-top: 4px;
     margin-left: 20px;
@@ -115,15 +115,17 @@ body {
     /*  width: 25%;  */
     width: auto;
     height: auto;
+
     display: flex;
-    /*  align-items: flex-start;    */
-    
-    align-items: center;  /*  Alinha verticalmente no centro  */
+    /*  align-items: center;   */
+    align-items: flex-start;  
+
     /*  justify-content: center;  
     *    justify-content: flex-start;
     */
-    /*   gap: 12px;  espaço entre logo e texto */
-    gap: 15px; 
+   
+
+     gap: 12px; /* espaço entre logo e texto */
 
     color: white;
 
@@ -139,19 +141,12 @@ body {
     */
 }
 
-/* .logo-box {  
-    display: flex;
-    align-items: center;   Alinha verticalmente no centro 
-    gap: 15px;
-}
-*/
-
-
-
 /* Garante que o logo e o menu fiquem ACIMA dessa camada escura */
 .logo-box, .menu {
     z-index: 2;
 }
+
+
 
 /* IMAGEM DO LOGO */
 .logo {
@@ -166,26 +161,15 @@ body {
 }
 
 .logo-texto {
-     /*  position: absolute; 🔥 faz sobrepor */
-    position: static;  /* Remove o translate  */
+    position: absolute; /* 🔥 faz sobrepor */
     display: flex;
     flex-direction: column;
     font-family: 'Montserrat', sans-serif;  
      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
      /*  margin-top: 4px;  */
-      /*  transform: translate(80px,4px);  ajuste fino */    
+      transform: translate(80px,4px); /* ajuste fino */    
       white-space: nowrap; 
-      transform: none;
 }
-
-/*
-.logo-texto {
-    position: static;  Remove o translate 
-    transform: none;
-}
-*/
-
-
 
 /* Linha principal */
 .linha1 {
@@ -229,21 +213,6 @@ body {
     left: 0;
 }
 
-
-
-/* HEADER FIXO */
-
-/*
-.menu.fixed-nav {
-    position: fixed;
-    top: 0;
-    bottom: auto;
-    background: rgba(0, 0, 0, 0.9);
-    height: 60px;
-}
-*/    
-
-
 .menu.fixed-nav {
 
     position: fixed;
@@ -278,8 +247,7 @@ body {
 }
 
 
-/* animação */
-
+/***    ANIMACAO   ****/
 @keyframes slideDown {
 
     from {
@@ -295,7 +263,22 @@ body {
 
 
 
-/* MENU HORIZONTAL */
+
+/***   MENU HORIZONTAL   ****/
+/*
+.menu-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    backdrop-filter: blur(6px);
+}
+*/
+
+
 .menu-list {
     list-style: none;
     display: flex;
@@ -312,8 +295,7 @@ body {
 }
 
 
-
-/* LINKS */
+/***   LINKS   ****/
 .menu-list a {
     color: #fff;
     text-decoration: none;
@@ -323,6 +305,8 @@ body {
 .menu-list li {
     position: relative;
 }
+
+
 
 .submenu {
     list-style: none; /* 👈 Adicione esta linha aqui */
@@ -379,12 +363,6 @@ body {
     display: block;
 }
 
-.has-sub > a::after {
-    content: ' ▼';
-    font-size: 10px;
-    vertical-align: middle;
-    opacity: 0.7;
-}
 
 .menu-toggle {
     display: none;
@@ -396,9 +374,6 @@ body {
     border: none;
     cursor: pointer;
 }
-
-
-
 
 /* botão serviços */
 .submenu-btn {
@@ -417,6 +392,7 @@ body {
 .has-sub.active > .submenu {
     display: block !important;
 }
+
 
 
 /* ========================= */
@@ -551,7 +527,9 @@ body {
 
 
 
-
+/* ========================= */
+/*      NOTICIAS            */
+/* ========================= */
 .noticias {
     padding: 70px 5%;
     background: #ffffff;
@@ -602,194 +580,10 @@ body {
 
 
 
-/* ========================= */
-/*      CARROSSEL            */
-/* ========================= */
-.carrossel-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 50px 0;
-
-    background: #f4f6f9;
-}
-
-/****   CONTAINER   ****/
-.carrossel {
-    position: relative;
-    width: 60%;
-    max-width: 1200px;
-
-    height: 320px;
-
-    overflow: hidden;
-
-    border-radius: 18px;
-
-    background: #12263f;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* SLIDES */
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100%;
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    transition: opacity 0.8s ease;
-}
-
-.slide.ativo {
-    opacity: 1;
-    visibility: visible;
-    z-index: 2;
-}
-
-/*****   IMAGEM    ****/
-.slide img {
-    width: 100%;
-    height: 100%;
-
-    object-fit: contain;
-
-    background: #000;
-
-    display: block;
-}
-
-/*****    TEXTO   ****/
-.slide-texto {
-    position: absolute;
-    left: 40px;
-    bottom: 35px;
-
-    color: white;
-
-    z-index: 5;
-
-    max-width: 70%;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
-}
-
-.slide-texto h2 {
-    font-size: 34px;
-    margin-bottom: 10px;
-}
-
-.slide-texto p {
-    font-size: 18px;
-}
-
-/****    BOTÕES    ****/
-.carrossel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-
-    z-index: 10;
-
-    border: none;
-
-    width: 48px;
-
-    height: 48px;
-
-    border-radius: 50%;
-
-    background: rgba(255,255,255,0.2);
-
-    color: white;
-
-    font-size: 24px;
-
-    cursor: pointer;
-}
-
-.prev {
-    left: 15px;
-}
-
-.next {
-    right: 15px;
-}
-
-
-
-.card,
-.noticia-card,
-.institucional,
-.numero {
-    animation: subirSuave 0.8s ease forwards;
-}
-
-@keyframes subirSuave {
-    from {
-        opacity: 0;
-        transform: translateY(25px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 
 /* ========================= */
-/*          FOOTER           */
+/*        ANCORA TOP           */
 /* ========================= */
-
-.footer {
-    background: #12263f;
-    color: #ddd;
-    padding: 60px 5% 30px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    gap: 40px;
-}
-
-.footer h3 {
-    color: white;
-    margin-bottom: 18px;
-    font-size: 22px;
-}
-
-.footer p,
-.footer a {
-    color: #ccc;
-    text-decoration: none;
-    line-height: 1.8;
-}
-
-.footer a:hover {
-    color: #00aaff;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 40px;
-    padding-top: 20px;
-    text-align: center;
-    color: #aaa;
-    font-size: 14px;
-}
-
-
 html {
     scroll-behavior: smooth;
 }
@@ -826,6 +620,161 @@ html {
     background: #0077cc;
     transform: translateY(-4px);
 }
+
+
+
+/* ========================= */
+/*      CARROSSEL            */
+/* ========================= */
+.carrossel-wrapper {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 50px 0;
+
+    background: #f4f6f9;
+}
+
+/* CONTAINER */
+
+.carrossel {
+
+    position: relative;
+
+    width: 60%;
+
+    max-width: 1200px;
+
+    height: 320px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #12263f;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/****   SLIDES   ****/
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: opacity 0.8s ease;
+}
+
+.slide.ativo {
+    opacity: 1;
+    visibility: visible;
+
+    z-index: 2;
+}
+
+/*  SLIDE IMAGEM */
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+
+    display: block;
+}
+
+/***  SLIDE  TEXTO  ****/
+.slide-texto {
+    position: absolute;
+    left: 40px;
+    bottom: 35px;
+
+    color: white;
+
+    z-index: 5;
+
+    max-width: 70%;
+
+    text-shadow: 0 3px 10px rgba(0,0,0,0.7);
+}
+
+.slide-texto h2 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.slide-texto p {
+    font-size: 18px;
+}
+
+/* BOTÕES */
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    z-index: 10;
+
+    border: none;
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+
+.card,
+.noticia-card,
+.institucional,
+.numero {
+    animation: subirSuave 0.8s ease forwards;
+}
+
+@keyframes subirSuave {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 
 
@@ -868,15 +817,6 @@ html {
         gap: 12px;
         padding: 8px 12px;
     }
-
-  .btn-topo {
-        right: 16px;
-        bottom: 16px;
-        width: 42px;
-        height: 42px;
-        font-size: 22px;
-    }
-
 }
 
 
@@ -1071,33 +1011,9 @@ html {
   /*  }   */
 
 
-    /****   CONTAINER   ****/
-    .carrossel {
-        position: relative;
-        width: 100%;
-        
-        /*
-        max-width: 1200px;
-        height: 320px;
-        overflow: hidden;
-        border-radius: 18px;
-        background: #12263f;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        margin-left: auto;
-        margin-right: auto;
-          */
-    }
-
-
-
 
 
 }
-/***   FINAL - CELULAR   ******/
-
-
-
-
 
 
 /* ========================= */
@@ -1162,132 +1078,10 @@ html {
         padding: 5px 17px;
     }
 
-  .btn-topo {
-        right: 16px;
-        bottom: 16px;
-        width: 42px;
-        height: 42px;
-        font-size: 22px;
-    }
-
 
 }
 </style>
-<script>
 
-const toggle = document.querySelector('.menu-toggle');
-const menu = document.querySelector('.menu-list');
-
-/* abrir/fechar menu no celular */
-toggle.addEventListener('click', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-    menu.classList.toggle('active');
-});
-
-/* abrir submenu no clique */
-document.querySelectorAll('.has-sub > a').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const item = this.parentElement;
-
-        document.querySelectorAll('.has-sub').forEach(function(outro) {
-            if (outro !== item) {
-                outro.classList.remove('active');
-            }
-        });
-
-        item.classList.toggle('active');
-    });
-});
-
-/* não fechar quando clicar dentro do menu */
-document.querySelector('.menu').addEventListener('click', function(e) {
-    e.stopPropagation();
-});
-
-/* fecha só quando clicar fora */
-document.addEventListener('click', function() {
-    menu.classList.remove('active');
-
-    document.querySelectorAll('.has-sub').forEach(function(item) {
-        item.classList.remove('active');
-    });
-});
-
-
-
-/* HEADER FIXO */
-
-const menuHeader = document.querySelector('.menu');
-
-window.addEventListener('scroll', () => {
-
-    if (window.scrollY > 120) {
-
-        menuHeader.classList.add('fixed-nav');
-
-    } else {
-
-        menuHeader.classList.remove('fixed-nav');
-    }
-
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".menu");
-
-    if (btn && menu) {
-        btn.addEventListener("click", function () {
-            menu.classList.toggle("ativo");
-        });
-    }
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menuList = document.querySelector('.menu-list');
-
-    // Abrir/Fechar menu principal no celular
-    toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        menuList.classList.toggle('active');
-    });
-
-    // Abrir submenus no clique (Mobile)
-    document.querySelectorAll('.has-sub > a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                e.stopPropagation();
-                const parent = this.parentElement;
-                
-                // Fecha outros submenus abertos
-                document.querySelectorAll('.has-sub').forEach(function(item) {
-                    if (item !== parent) item.classList.remove('active');
-                });
-
-                parent.classList.toggle('active');
-            }
-        });
-    });
-
-    // Fecha ao clicar fora
-    document.addEventListener('click', function() {
-        menuList.classList.remove('active');
-        document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
-    });
-});
-
-
-
-</script>
 
 </head>
 <body>
@@ -1391,6 +1185,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </header>
 
+
 <!-- ========================= -->
 <!--        CONTEÚDO           -->
 <!-- ========================= -->
@@ -1488,6 +1283,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 
 
+<!-- NOTICIAS  -->
 <section class="noticias">
     <div class="section-title">
         <h2>Notícias e Defesas</h2>
@@ -1519,8 +1315,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     </div>
 </section>
+<!-- FINAL - NOTICIAS  -->
 
 
+<!-- CARROSSEL   -->
 <div class="carrossel-wrapper">
 
     <section class="carrossel">
@@ -1556,59 +1354,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-<!-- ========================= -->
-<!--          FOOTER           -->
-<!-- ========================= -->
 
-<footer class="footer">
 
-    <div class="footer-grid">
+<script>
+const toggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu-list');
 
-        <div>
-            <h3>Departamento</h3>
+// Botão hambúrguer (Celular)
+toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu.classList.toggle('active');
+});
 
-            <p>
-                Departamento de Teste<br>
-                RPFX/ABC
-            </p>
+// SUBMENU - Agora para todos os tamanhos de tela
+document.querySelectorAll('.has-sub > a').forEach(link => {
+    link.addEventListener('click', (e) => {
+        // SEMPRE impede o link de navegar para abrir o submenu no clique
+        e.preventDefault(); 
+        e.stopPropagation();
 
-            <p>
-                Universidade Exemplo<br>
-                Ribeirão Preto - SP
-            </p>
-        </div>
+        const parent = link.parentElement;
 
-        <div>
-            <h3>Links Rápidos</h3>
-            <p><a href="#">Graduação</a></p>
-            <p><a href="#">Pós-Graduação</a></p>
-            <p><a href="#">Pesquisa</a></p>
-            <p><a href="#">Laboratórios</a></p>
-        </div>
+        // Fecha outros submenus que estiverem abertos
+        document.querySelectorAll('.has-sub').forEach(item => {
+            if (item !== parent) {
+                item.classList.remove('active');
+            }
+        });
 
-        <div>
-            <h3>Contato</h3>
+        // Abre/Fecha o submenu clicado
+        parent.classList.toggle('active');
+    });
+});
 
-            <p>📞 (16) 0000-0000</p>
-            <p>✉ contato@universidade.br</p>
-            <p>📍 Ribeirão Preto - SP</p>
-        </div>
+// Fecha tudo se clicar fora do menu
+document.addEventListener('click', () => {
+    if (window.innerWidth <= 768) {
+        menu.classList.remove('active');
+    }
+    document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
+});
+</script>
 
-        <div>
-            <h3>Redes Sociais</h3>
 
-            <p><a href="#">Instagram</a></p>
-            <p><a href="#">Facebook</a></p>
-            <p><a href="#">YouTube</a></p>
-        </div>
 
-    </div>
-
-    <div class="footer-bottom">
-        © 2026 Departamento de Teste - Todos os direitos reservados.
-    </div>
-
-</footer>
 <a href="#topo" class="btn-topo" aria-label="Voltar ao topo">↑</a>
 </body>
 </html>

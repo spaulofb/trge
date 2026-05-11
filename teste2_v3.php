@@ -418,7 +418,6 @@ body {
     display: block !important;
 }
 
-
 /* ========================= */
 /*        CONTENT            */
 /* ========================= */
@@ -549,9 +548,6 @@ body {
     font-size: 18px;
 }
 
-
-
-
 .noticias {
     padding: 70px 5%;
     background: #ffffff;
@@ -601,14 +597,19 @@ body {
 }
 
 
-
+/*  CARROSSEL  */
 /* ========================= */
 /*      CARROSSEL            */
 /* ========================= */
+
 .carrossel-wrapper {
+
     width: 100%;
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     padding: 50px 0;
@@ -616,10 +617,14 @@ body {
     background: #f4f6f9;
 }
 
-/****   CONTAINER   ****/
+/* CONTAINER */
+
 .carrossel {
+
     position: relative;
+
     width: 60%;
+
     max-width: 1200px;
 
     height: 320px;
@@ -637,8 +642,11 @@ body {
 }
 
 /* SLIDES */
+
 .slide {
+
     position: absolute;
+
     top: 0;
     left: 0;
 
@@ -653,14 +661,20 @@ body {
 }
 
 .slide.ativo {
+
     opacity: 1;
+
     visibility: visible;
+
     z-index: 2;
 }
 
-/*****   IMAGEM    ****/
+/* IMAGEM */
+
 .slide img {
+
     width: 100%;
+
     height: 100%;
 
     object-fit: contain;
@@ -670,10 +684,14 @@ body {
     display: block;
 }
 
-/*****    TEXTO   ****/
+/* TEXTO */
+
 .slide-texto {
+
     position: absolute;
+
     left: 40px;
+
     bottom: 35px;
 
     color: white;
@@ -681,22 +699,30 @@ body {
     z-index: 5;
 
     max-width: 70%;
+
     text-shadow: 0 3px 10px rgba(0,0,0,0.7);
 }
 
 .slide-texto h2 {
+
     font-size: 34px;
+
     margin-bottom: 10px;
 }
 
 .slide-texto p {
+
     font-size: 18px;
 }
 
-/****    BOTÕES    ****/
+/* BOTÕES */
+
 .carrossel-btn {
+
     position: absolute;
+
     top: 50%;
+
     transform: translateY(-50%);
 
     z-index: 10;
@@ -719,10 +745,12 @@ body {
 }
 
 .prev {
+
     left: 15px;
 }
 
 .next {
+
     right: 15px;
 }
 
@@ -956,24 +984,94 @@ html {
         /*  align-items: flex-start;  */  /*  Inicio da Tela */
  /*   }   */
 
-    .menu {
-        position: absolute !important;
-         /*  top: 200px;   IMPORTANTE:  Ajuste esta altura para onde o botão ☰ deve ficar */
-        top: 80%; /* 👈 Ele sempre estará a 80% do topo do banner, não importa a altura */
-        bottom: auto;  /*   IMPORTANTE: desativa o fundo */
-        right: 10px;
-        width: calc(100% - 20px);
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-    }
 
+/*
     .menu-toggle {
         display: block;
         margin-bottom: 6px;
         font-size: 24px;
     }
+*/
 
+    .menu {
+        /*  position: absolute !important;  */
+        position: relative !important;
+         /*  top: 200px;   IMPORTANTE:  Ajuste esta altura para onde o botão ☰ deve ficar */
+        top: 80%; /* 👈 Ele sempre estará a 80% do topo do banner, não importa a altura */
+        bottom: auto;  /*   IMPORTANTE: desativa o fundo */
+        right: 10px;
+        width: calc(100% - 20px);
+        display: flex;  
+        /*  display:none;  */
+        flex-direction: column;
+        align-items: flex-end;
+        z-index: 99999;
+    }
+
+
+/*
+.menu-toggle {
+        display: block;
+        cursor: pointer;
+        font-size: 24px;
+        z-index: 9999;
+        position: relative;
+    }
+*/
+
+    .menu-toggle {
+        display: block;
+        font-size: 32px;
+        background: none;
+        border: 0;
+        color: white;
+        cursor: pointer;
+    }
+
+
+    /*
+ .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(0,0,0,0.85);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        z-index: 9998;
+    }
+*/
+
+
+   .menu-list {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 45px;
+        right: 0;
+        width: 260px;
+        background: rgba(0,0,0,0.92);
+        padding: 10px 0;
+        margin: 0;
+        list-style: none;
+        z-index: 99999;
+    }
+
+
+  .menu-list.ativo {
+        display: flex;
+    }
+
+    .menu-list li {
+        width: 100%;
+    }
+
+    .menu.ativo {
+        display: flex;
+    }
+
+
+    /*
     .menu-list {
         display: none;
         flex-direction: column;
@@ -983,6 +1081,7 @@ html {
         background: rgba(0,0,0,0.78);
         border-radius: 10px;
     }
+    */
 
     .menu-list.active {
         display: flex;
@@ -992,10 +1091,48 @@ html {
         width: 100%;
     }
 
+    /*
     .menu-list a {
         display: block;
         padding: 12px 15px;
     }
+     */
+
+    .menu-list a {
+        display: block;
+        padding: 12px 18px;
+        color: white;
+        text-decoration: none;
+    }    
+
+    .menu-list.active {
+        display: flex !important;
+    }
+
+    .menu-list .has-sub .submenu {
+        display: none !important;
+        position: static !important;
+        width: 100% !important;
+        min-width: 100% !important;
+        background: rgba(255,255,255,0.12) !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+
+    /*
+    .menu-list .has-sub.active .submenu {
+        display: block !important;
+        position: static !important;
+    }
+   */
+    .menu-list .submenu li a {
+        padding: 10px 28px !important;
+    }
+
+
+
 
    /*
     .has-sub:hover .submenu {
@@ -1017,7 +1154,7 @@ html {
      */
 
     .submenu {
-        position: static;
+        position: static !important;
         bottom: auto;
         top: auto;
         left: auto;
@@ -1029,8 +1166,8 @@ html {
 
         background: rgba(255,255,255,0.12);
         border-radius: 0;
+        padding-left: 15px;
     }
-
 
 
     .menu-list .has-sub .submenu {
@@ -1050,19 +1187,42 @@ html {
         border-radius: 0;
     }
 
+
+
+     .menu-list .has-sub.active .submenu {
+        display: block !important;
+        position: static !important;
+        width: 100%;
+        min-width: 100%;
+        background: rgba(255,255,255,0.12);
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
+        z-index: auto;
+    }
+
+    .menu-list .has-sub .submenu li a {
+        padding: 10px 25px;
+    }
+
+
+    .has-sub.aberto > .submenu {
+        display: block;
+    }
+
     /*
     .has-sub.active .submenu {
         display: block !important;
     }
-        */
+
 
     .has-sub.active .submenu {
         position: absolute;
         top: 100%;
         left: 0;
-       /* z-index: 100;   */
           z-index: 999;
     }
+                  */
 
 
  /*   .submenu li a {   */
@@ -1071,33 +1231,44 @@ html {
   /*  }   */
 
 
-    /****   CONTAINER   ****/
-    .carrossel {
-        position: relative;
-        width: 100%;
-        
-        /*
-        max-width: 1200px;
-        height: 320px;
-        overflow: hidden;
-        border-radius: 18px;
-        background: #12263f;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        margin-left: auto;
-        margin-right: auto;
-          */
+    .institucional {
+        grid-template-columns: 1fr;
+    }
+
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .institucional-texto h2 {
+        font-size: 28px;
+    }
+
+    .numero h3 {
+        font-size: 36px;
     }
 
 
+    .carrossel {
+        width: 94%;
+        height: 220px;
+    }
 
+    .slide-texto {
+        left: 20px;
+        bottom: 20px;
+        max-width: 85%;
+    }
+
+    .slide-texto h2 {
+        font-size: 22px;
+    }
+
+    .slide-texto p {
+        font-size: 14px;
+    }
 
 
 }
-/***   FINAL - CELULAR   ******/
-
-
-
-
 
 
 /* ========================= */
@@ -1249,40 +1420,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const menuList = document.querySelector('.menu-list');
 
-    // Abrir/Fechar menu principal no celular
-    toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        menuList.classList.toggle('active');
+document.addEventListener("DOMContentLoaded", function () {
+
+    const botao = document.querySelector(".menu-toggle");
+    const lista = document.querySelector(".menu-list");
+
+    botao.addEventListener("click", function () {
+        lista.classList.toggle("ativo");
     });
 
-    // Abrir submenus no clique (Mobile)
-    document.querySelectorAll('.has-sub > a').forEach(function(link) {
-        link.addEventListener('click', function(e) {
+    document.querySelectorAll(".has-sub > a").forEach(function (link) {
+        link.addEventListener("click", function (e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
-                e.stopPropagation();
-                const parent = this.parentElement;
-                
-                // Fecha outros submenus abertos
-                document.querySelectorAll('.has-sub').forEach(function(item) {
-                    if (item !== parent) item.classList.remove('active');
-                });
-
-                parent.classList.toggle('active');
+                this.parentElement.classList.toggle("aberto");
             }
         });
     });
 
-    // Fecha ao clicar fora
-    document.addEventListener('click', function() {
-        menuList.classList.remove('active');
-        document.querySelectorAll('.has-sub').forEach(item => item.classList.remove('active'));
-    });
 });
 
 
@@ -1290,6 +1446,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 </head>
+
 <body>
 <div id="topo"></div>
 <header>
@@ -1486,7 +1643,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
 </section>
-
 
 <section class="noticias">
     <div class="section-title">

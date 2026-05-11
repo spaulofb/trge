@@ -1,0 +1,1265 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipe Docente – Departamento de Genética – FMRP/USP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+
+
+/* Esconde a barra e qualquer moldura de tradução */
+.goog-te-banner-frame, 
+.goog-te-banner, 
+.skiptranslate, 
+#goog-gt-tt, 
+.goog-te-balloon-frame {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+/* Força o topo a ficar em zero custe o que custar */
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+/* Remove o espaço que o Google coloca no topo do HTML */
+html {
+    margin-top: 0 !important;
+}
+
+
+/* Esconder o widget original do Google */
+#google_translate_element {
+    display: none;
+}
+
+/* Esconder o banner de sugestão do Google no topo */
+.goog-te-banner-frame.skiptranslate, .goog-te-gadget-icon {
+    display: none !important;
+}
+
+
+/* Esconder o tooltip do Google ao passar o mouse */
+.goog-te-balloon-frame {
+    display: none !important;
+}
+
+
+        :root {
+            --primary-green: #1a5c3a;
+            --dark-green: #0f3d26;
+            --light-green: #2d7a52;
+            --accent-green: #4ade80;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar-brand svg {
+            height: 55px;
+        }
+
+        .navbar {
+            padding: 0.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .navbar-nav .nav-link {
+            color: #444;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 1rem 1rem !important;
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link:focus {
+            color: var(--primary-green);
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item {
+            font-size: 0.9rem;
+            padding: 0.6rem 1.2rem;
+        }
+
+        .dropdown-item:hover {
+            background-color: rgba(26, 92, 58, 0.08);
+            color: var(--primary-green);
+        }
+
+        .lang-switch {
+            font-size: 0.8rem;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .lang-switch:hover {
+            color: var(--primary-green);
+        }
+
+        /* Page Header */
+        .page-header {
+            position: relative;
+            padding: 100px 0 80px;
+            background: linear-gradient(135deg, var(--dark-green) 0%, var(--primary-green) 100%);
+            color: white;
+            overflow: hidden;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+
+        .breadcrumb-custom {
+            background: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumb-custom a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-custom a:hover {
+            color: white;
+        }
+
+        .breadcrumb-custom .active {
+            color: white;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb-custom .separator {
+            color: rgba(255,255,255,0.4);
+            margin: 0 8px;
+        }
+
+        /* Section Labels */
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-label::before {
+            content: '';
+            display: inline-block;
+            width: 25px;
+            height: 2px;
+            background: var(--primary-green);
+        }
+
+        /* Filters */
+        .filters-section {
+            padding: 2rem 0;
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            background: white;
+            color: #555;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 5px 5px 0;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding-left: 2.5rem;
+            border-radius: 50px;
+            border: 1px solid #ddd;
+            padding-top: 0.6rem;
+            padding-bottom: 0.6rem;
+            font-size: 0.9rem;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(26, 92, 58, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        /* Docente Cards */
+        .docentes-section {
+            padding: 3rem 0 5rem;
+            background: var(--bg-light);
+        }
+
+        .docente-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .docente-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .docente-photo-wrap {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+        }
+
+        .docente-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .docente-card:hover .docente-photo {
+            transform: scale(1.05);
+        }
+
+        .docente-photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--light-green) 100%);
+        }
+
+        .docente-photo-placeholder i {
+            font-size: 4rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .docente-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent-green);
+            color: var(--dark-green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .docente-badge-chefe {
+            background: #fff;
+            color: var(--primary-green);
+        }
+
+        .docente-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .docente-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 0.3rem;
+        }
+
+        .docente-role {
+            font-size: 0.8rem;
+            color: var(--primary-green);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+        }
+
+        .docente-area {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .docente-area strong {
+            color: #333;
+        }
+
+        .docente-contact {
+            font-size: 0.8rem;
+            color: #777;
+            margin-bottom: 1rem;
+        }
+
+        .docente-contact i {
+            color: var(--primary-green);
+            margin-right: 5px;
+        }
+
+        .docente-links {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .docente-link {
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .docente-link-primary {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .docente-link-primary:hover {
+            background: var(--dark-green);
+            border-color: var(--dark-green);
+            color: white;
+        }
+
+        .docente-link-outline {
+            background: transparent;
+            color: var(--primary-green);
+            border-color: var(--primary-green);
+        }
+
+        .docente-link-outline:hover {
+            background: var(--primary-green);
+            color: white;
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: white;
+            padding: 2rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-green);
+            color: rgba(255,255,255,0.8);
+            padding: 4rem 0 1.5rem;
+        }
+
+        .footer-logo {
+            height: 70px;
+            margin-bottom: 1rem;
+        }
+
+        .footer-desc {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            max-width: 250px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer h6 {
+            color: white;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.8rem;
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-contact-item i {
+            margin-top: 3px;
+            font-size: 0.9rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            width: 32px;
+            height: 32px;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: var(--dark-green);
+            border-color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin: 0;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            font-size: 0.8rem;
+            margin-left: 1rem;
+        }
+
+        .footer-bottom-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            .page-header {
+                padding: 60px 0 50px;
+            }
+        }
+       
+    </style>
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <svg height="55" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 65 C45 65, 50 55, 50 45 C50 35, 40 30, 35 30 C30 30, 25 35, 25 40 C25 45, 30 50, 35 50" 
+                          stroke="#1a5c3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="35" cy="18" r="3" fill="#1a5c3a"/>
+                    <text x="60" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a5c3a">FMRP – USP</text>
+                    <text x="60" y="48" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Departamento de</text>
+                    <text x="60" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Genética</text>
+                </svg>
+            </a>
+
+                <a href="#" class="text-muted me-3"><i class="bi bi-search"></i></a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Departamento</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sobre o Departamento</a></li>
+                            <li><a class="dropdown-item" href="#">História</a></li>
+                            <li><a class="dropdown-item" href="#">Infraestrutura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Ensino</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Graduação</a></li>
+                            <li><a class="dropdown-item" href="#">Pós-graduação</a></li>
+                            <li><a class="dropdown-item" href="#">Cursos de Extensão</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pesquisa</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Linhas de Pesquisa</a></li>
+                            <li><a class="dropdown-item" href="#">Projetos</a></li>
+                            <li><a class="dropdown-item" href="#">Publicações</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Laboratórios</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Laboratórios de Pesquisa</a></li>
+                            <li><a class="dropdown-item" href="#">Laboratórios de Ensino</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Equipe</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="docentes.html">Docentes</a></li>
+                            <li><a class="dropdown-item" href="#">Pesquisadores</a></li>
+                            <li><a class="dropdown-item" href="#">Funcionários</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+
+
+<div class="d-flex align-items-center me-3">
+    <a href="javascript:void(0)" onclick="changeLanguage('pt')" id="btn-pt" class="lang-switch fw-bold" style="color: var(--primary-green);">PT</a>
+    
+    <span class="mx-1 text-muted">|</span>
+    
+    <a href="javascript:void(0)" onclick="changeLanguage('en')" id="btn-en" class="lang-switch">EN</a>
+</div>
+
+<div id="google_translate_element" style="display:none !important;"></div>
+
+
+    <a href="#" class="text-muted me-3"><i class="bi bi-search"></i></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container page-header-content">
+            <nav class="breadcrumb-custom">
+                <a href="index.html">Início</a>
+                <span class="separator">/</span>
+                <a href="#">Equipe</a>
+                <span class="separator">/</span>
+                <span class="active">Docentes</span>
+            </nav>
+            <h1>Equipe Docente</h1>
+            <p>Conheça os professores e pesquisadores que compõem o Departamento de Genética da FMRP/USP, dedicados à excelência em ensino, pesquisa e inovação.</p>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Docentes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Linhas de Pesquisa</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mt-3 mt-md-0">
+                    <div class="stat-item">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Publicações/Ano</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3 mt-3 mt-md-0">
+                    <div class="stat-item">
+                        <span class="stat-number">1A</span>
+                        <span class="stat-label">Conceito Capes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mb-3 mb-lg-0">
+                    <span class="text-muted me-2" style="font-size: 0.85rem;">Filtrar por área:</span>
+                    <button class="filter-btn active">Todos</button>
+                    <button class="filter-btn">Genética Humana</button>
+                    <button class="filter-btn">Genética Molecular</button>
+                    <button class="filter-btn">Genômica</button>
+                    <button class="filter-btn">Genética Animal</button>
+                    <button class="filter-btn">Bioinformática</button>
+                </div>
+                <div class="col-lg-4">
+                    <div class="search-box">
+                        <i class="bi bi-search"></i>
+                        <input type="text" class="form-control" placeholder="Buscar docente...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Docentes Grid -->
+    <section class="docentes-section">
+        <div class="container">
+            <div class="section-label mb-4">Nossos Professores</div>
+            <h2 class="mb-5" style="font-size: 2rem; font-weight: 700; color: #222;">Corpo Docente</h2>
+
+            <div class="row g-4">
+                <!-- Docente 1 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <span class="docente-badge docente-badge-chefe">Chefe</span>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Wilson Araújo da Silva Júnior</h5>
+                            <span class="docente-role">Professor Titular</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Molecular Humana<br>
+                                Diversidade genética de populações, marcadores genéticos do DNA nuclear e mitocondrial, microRNAs e neoplasias hematológicas.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> wilson.silva@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 2 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                            <span class="docente-badge">Vice-Chefe</span>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Ester Silveira Ramos</h5>
+                            <span class="docente-role">Professora Associada</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Animal<br>
+                                Melhoramento genético aplicado a bovinos de corte, reprodução assistida, precocidade sexual e crescimento, epigenética.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> ester.ramos@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 3 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Francis de Assis Nóbrega</h5>
+                            <span class="docente-role">Professor Associado</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética e Bioquímica<br>
+                                Biologia molecular de fungos, transcriptoma, patogenicidade de Paracoccidioides brasiliensis e resistência a antifúngicos.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> francis.nobrega@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 4 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Tie Koide</h5>
+                            <span class="docente-role">Professor Doutor</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Bioinformática / Genética de Microrganismos<br>
+                                Biologia sistêmica de arqueas, RNAs não codificantes, redes regulatórias gênicas, genômica de Xylella fastidiosa.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> tie.koide@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 5 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Iran Malavazi</h5>
+                            <span class="docente-role">Professor Doutor</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Molecular / Micologia<br>
+                                Genômica funcional de fungos patogênicos, Aspergillus fumigatus, resistência a azóis, biosíntese de ergosterol.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> iran.malavazi@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 6 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Victor Evangelista de Faria Ferraz</h5>
+                            <span class="docente-role">Professor Doutor</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética<br>
+                                Atuação no Departamento de Genética da FMRP/USP com foco em pesquisa e ensino na área de genética.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> victor.ferraz@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 7 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Ricardo Zorzetto Nicoliello Vêncio</h5>
+                            <span class="docente-role">Professor Doutor</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Bioinformática / Genômica<br>
+                                Análise de dados ômicos, transcriptômica, aprendizado de máquina aplicado à biologia, sistemas biológicos computacionais.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> rvencio@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 8 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Klaus Hartmann Hartfelder</h5>
+                            <span class="docente-role">Professor Titular</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Animal / Biologia Molecular<br>
+                                Biologia molecular de abelhas, desenvolvimento ovariano, expressão gênica diferencial, Apis mellifera.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> klaus.hartfelder@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 9 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Raysildo Barbosa Lôbo</h5>
+                            <span class="docente-role">Professor Titular</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Animal / Melhoramento<br>
+                                Melhoramento genético animal, bovinos de corte, precocidade sexual, crescimento, genética quantitativa.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> rlobo@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 10 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Marco Antonio Zago</h5>
+                            <span class="docente-role">Professor Titular</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Humana e Médica<br>
+                                Hematologia molecular, terapia gênica, doenças genéticas hematológicas, engenharia celular.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> zago@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 11 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Regina Célia Mingroni-Neto</h5>
+                            <span class="docente-role">Professora Associada</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Humana e Médica<br>
+                                Genética médica, síndromes genéticas, diagnóstico molecular, conselho genético, genética de populações.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> rmingroni@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Docente 12 -->
+                <div class="col-md-6 col-lg-4 col-xl-3">
+                    <div class="docente-card">
+                        <div class="docente-photo-wrap">
+                            <div class="docente-photo-placeholder">
+                                <i class="bi bi-person-fill"></i>
+                            </div>
+                        </div>
+                        <div class="docente-body">
+                            <h5 class="docente-name">Sergio Danilo Junho Pena</h5>
+                            <span class="docente-role">Professor Titular</span>
+                            <p class="docente-area">
+                                <strong>Área:</strong> Genética Humana / Farmacogenética<br>
+                                Farmacogenética, genética forense, DNA de populações, genômica personalizada, medicina de precisão.
+                            </p>
+                            <div class="docente-contact">
+                                <i class="bi bi-envelope"></i> sdjpena@fmrp.usp.br<br>
+                                <i class="bi bi-telephone"></i> (16) 3315-3300
+                            </div>
+                            <div class="docente-links">
+                                <a href="#" class="docente-link docente-link-primary">Currículo Lattes</a>
+                                <a href="#" class="docente-link docente-link-outline">Site</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <svg height="70" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 65 C45 65, 50 55, 50 45 C50 35, 40 30, 35 30 C30 30, 25 35, 25 40 C25 45, 30 50, 35 50" 
+                              stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="35" cy="18" r="3" fill="white"/>
+                        <text x="60" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="white">FMRP – USP</text>
+                        <text x="60" y="48" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="white">Departamento de</text>
+                        <text x="60" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="white">Genética</text>
+                    </svg>
+                    <p class="footer-desc mt-3">Compromisso com a formação de excelência e a produção de conhecimento científico.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6>Links Rápidos</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Ensino</a></li>
+                        <li><a href="#">Pesquisa</a></li>
+                        <li><a href="#">Laboratórios</a></li>
+                        <li><a href="docentes.html">Equipe</a></li>
+                        <li><a href="#">Notícias</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Editais</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6>Informações</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Graduação</a></li>
+                        <li><a href="#">Pós-graduação</a></li>
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="#">Comissões</a></li>
+                        <li><a href="#">Transparência</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Contato</h6>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Av. Bandeirantes, 3900<br>Ribeirão Preto – SP, 14049-900</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>(16) 3315-3300</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>genetica@fmrp.usp.br</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Segunda a sexta-feira<br>8h às 17h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Departamento de Genética – FMRP/USP. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Acessibilidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+            pageLanguage: 'pt',
+            includedLanguages: 'pt,en',
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+            autoDisplay: false
+        }, 'google_translate_element');
+    }
+
+
+function changeLanguage(lang) {
+    // 1. Alterna o visual (Negrito)
+    const btnPt = document.getElementById('btn-pt');
+    const btnEn = document.getElementById('btn-en');
+
+alert(" lang = "+lang);
+
+
+    if( lang==='en') {
+        btnEn.classList.add('fw-bold');
+        btnPt.classList.remove('fw-bold');
+        btnEn.style.color = 'var(--primary-green)'; // Fica verde quando ativo
+        btnPt.style.color = '#666'; // Fica cinza quando inativo
+        document.getElementById('btn-en').style.fontWeight = 'bold';
+        document.getElementById('btn-pt').style.fontWeight = 'normal';
+
+   alert("aqui EN ");
+
+    } else {
+        btnPt.classList.add('fw-bold');
+        btnEn.classList.remove('fw-bold');
+        btnPt.style.color = 'var(--primary-green)';
+        btnEn.style.color = '#666';
+
+alert("aqui OUTRO ");
+
+    }
+
+    // 2. Lógica de Tradução (Cookie e Widget)
+    if (lang === 'pt') {
+        // Limpeza agressiva para voltar ao original
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + location.hostname;
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.usp.br";
+        window.location.reload();
+    } else {
+        // Define o cookie para traduzir
+        document.cookie = "googtrans=/pt/" + lang + "; path=/;";
+        document.cookie = "googtrans=/pt/" + lang + "; domain=" + location.hostname + "; path=/;";
+        
+        var select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = lang;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            location.reload();
+        }
+    }
+}
+    
+
+
+// Função auxiliar para manter o negrito no idioma certo
+function atualizarVisualBotoes(lang) {
+    const btnPt = document.getElementById('btn-pt');
+    const btnEn = document.getElementById('btn-en');
+    
+    if (btnPt && btnEn) {
+        if (lang === 'pt') {
+            btnPt.classList.add('fw-bold');
+            btnPt.style.color = 'var(--primary-green)';
+            btnEn.classList.remove('fw-bold');
+            btnEn.style.color = '#666';
+        } else {
+            btnEn.classList.add('fw-bold');
+            btnEn.style.color = 'var(--primary-green)';
+            btnPt.classList.remove('fw-bold');
+            btnPt.style.color = '#666';
+        }
+    }
+}
+
+    
+
+// Monitora a página para remover a barra do Google assim que ela surgir
+const observer = new MutationObserver(() => {
+    // 1. Remove o iframe da barra de ferramentas
+    const googleBar = document.querySelector('.goog-te-banner-frame');
+    if (googleBar) {
+        googleBar.remove();
+    }
+
+    // 2. Garante que o body não seja empurrado para baixo
+    if (document.body.style.top !== '0px') {
+        document.body.style.top = '0px';
+    }
+    
+    // 3. Remove margens indesejadas no elemento HTML
+    if (document.documentElement.style.marginTop !== '0px') {
+        document.documentElement.style.marginTop = '0px';
+    }
+});
+
+// Inicia a observação no documento inteiro
+observer.observe(document.documentElement, { 
+    attributes: true, 
+    childList: true, 
+    subtree: true 
+});
+
+
+
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    
+</body>
+</html>
