@@ -1,50 +1,15 @@
-<?php
-/**   PAGINA PRINCIPAL */
-// index.php (página inicial)
-//
-//  Caso sseion_start desativado - Ativar
-if( !isset($_SESSION) ) {
-     session_start();
-}
-//
-//  path e arquivo local
-$dirarq=$_SERVER['SCRIPT_FILENAME'];
-//
-//  Arquivo local
-$arqlocal =  basename(__FILE__);
-$dirprincipal = str_replace($arqlocal,'',$dirarq);
-//
-// Para site em subpasta (ex: exemplo.com/meusite/)
-//  define('BASE_PATH', '/var/www/html/trge/');
-define('BASE_PATH', "$dirprincipal");
-//
-//  Protocolo
-$_SESSION["protocolo"] = $protocolo =  (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS']=="on") ? "https" : "http");
-//
-// Para subpasta, defina manualmente:
-define('BASE_URL', $protocolo."://". $_SERVER['HTTP_HOST'] . '/trge/');
-//
-//   echo "BASE_PATH = ".BASE_PATH."  -->>  BASE_URL = ".BASE_URL;
-//    exit();
-//
-global $BASE_URL, $BASE_PATH;
-$_SESSION["BASE_URL"] = $BASE_URL=BASE_URL;
-$_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
-//
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamento TESTE</title>
+    <title>Departamento de Genética - FMRP/USP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="<?php echo $BASE_URL; ?>js/tradutor.js"></script>
+    <script src="js/tradutor.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <link rel="stylesheet" href="<?php echo $BASE_URL; ?>css/styleidiomas.css">
+    <link rel="stylesheet" href="css/styleidiomas.css">
     <style>
         :root {
             --primary-green: #1a5c3a;
@@ -655,8 +620,80 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
 <body>
 
     <!-- Navbar -->
-     <!-- Menu/Tradutor -->
-     <?php include BASE_PATH.'includes/menu.php'; ?>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <svg height="55" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 65 C45 65, 50 55, 50 45 C50 35, 40 30, 35 30 C30 30, 25 35, 25 40 C25 45, 30 50, 35 50" 
+                          stroke="#1a5c3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="35" cy="18" r="3" fill="#1a5c3a"/>
+                    <text x="60" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a5c3a">FMRP – USP</text>
+                    <text x="60" y="48" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Departamento de</text>
+                    <text x="60" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Genética</text>
+                </svg>
+            </a>
+
+
+            <div class="d-flex align-items-center order-lg-last">
+                <div class="d-flex align-items-center me-3">
+                     <?php include 'includes/idiomas.php'; ?>
+               </div>
+                <a href="#" class="text-muted me-3"><i class="bi bi-search"></i></a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Departamento</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Sobre o Departamento</a></li>
+                            <li><a class="dropdown-item" href="#">História</a></li>
+                            <li><a class="dropdown-item" href="#">Infraestrutura</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Ensino</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Graduação</a></li>
+                            <li><a class="dropdown-item" href="#">Pós-graduação</a></li>
+                            <li><a class="dropdown-item" href="#">Cursos de Extensão</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Pesquisa</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Linhas de Pesquisa</a></li>
+                            <li><a class="dropdown-item" href="#">Projetos</a></li>
+                            <li><a class="dropdown-item" href="#">Publicações</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Laboratórios</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Laboratórios de Pesquisa</a></li>
+                            <li><a class="dropdown-item" href="#">Laboratórios de Ensino</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Equipe</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Docentes</a></li>
+                            <li><a class="dropdown-item" href="#">Pesquisadores</a></li>
+                            <li><a class="dropdown-item" href="#">Funcionários</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contato</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -928,8 +965,79 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
     </section>
 
     <!-- Footer -->
-     <?php include $BASE_PATH.'includes/footer.php'; ?>
-     
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3">
+                    <svg height="70" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 65 C45 65, 50 55, 50 45 C50 35, 40 30, 35 30 C30 30, 25 35, 25 40 C25 45, 30 50, 35 50" 
+                              stroke="white" stroke-width="3" fill="none" stroke-linecap="round"/>
+                        <circle cx="35" cy="18" r="3" fill="white"/>
+                        <text x="60" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="white">FMRP – USP</text>
+                        <text x="60" y="48" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="white">Departamento de</text>
+                        <text x="60" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="white">Genética</text>
+                    </svg>
+                    <p class="footer-desc mt-3">Compromisso com a formação de excelência e a produção de conhecimento científico.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-1">
+                    <h6>Links Rápidos</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Ensino</a></li>
+                        <li><a href="#">Pesquisa</a></li>
+                        <li><a href="#">Laboratórios</a></li>
+                        <li><a href="#">Equipe</a></li>
+                        <li><a href="#">Notícias</a></li>
+                        <li><a href="#">Eventos</a></li>
+                        <li><a href="#">Editais</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h6>Informações</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Graduação</a></li>
+                        <li><a href="#">Pós-graduação</a></li>
+                        <li><a href="#">Biblioteca</a></li>
+                        <li><a href="#">Comissões</a></li>
+                        <li><a href="#">Transparência</a></li>
+                        <li><a href="#">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6>Contato</h6>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <span>Av. Bandeirantes, 3900<br>Ribeirão Preto – SP, 14049-900</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-telephone"></i>
+                        <span>(16) 3315-3300</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-envelope"></i>
+                        <span>genetica@fmrp.usp.br</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="bi bi-clock"></i>
+                        <span>Segunda a sexta-feira<br>8h às 17h</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Departamento de Genética – FMRP/USP. Todos os direitos reservados.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Política de Privacidade</a>
+                    <a href="#">Acessibilidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -2,11 +2,6 @@
 /**   PAGINA PRINCIPAL */
 // index.php (página inicial)
 //
-//  Caso sseion_start desativado - Ativar
-if( !isset($_SESSION) ) {
-     session_start();
-}
-//
 //  path e arquivo local
 $dirarq=$_SERVER['SCRIPT_FILENAME'];
 //
@@ -28,8 +23,8 @@ define('BASE_URL', $protocolo."://". $_SERVER['HTTP_HOST'] . '/trge/');
 //    exit();
 //
 global $BASE_URL, $BASE_PATH;
-$_SESSION["BASE_URL"] = $BASE_URL=BASE_URL;
-$_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
+$BASE_URL=BASE_URL;
+$BASE_PATH=BASE_PATH;
 //
 ?>
 <!DOCTYPE html>
@@ -38,7 +33,7 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
     <meta charset="UTF-8">
     <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamento TESTE</title>
+    <title>Departamento de Genética - FMRP/USP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -928,7 +923,7 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
     </section>
 
     <!-- Footer -->
-     <?php include $BASE_PATH.'includes/footer.php'; ?>
+     <?php include BASE_PATH.'includes/footer.php'; ?>
      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

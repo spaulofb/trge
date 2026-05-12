@@ -1,0 +1,77 @@
+/* Esconde a barra superior do Google */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+/* Remove o espaço que o Google adiciona no topo */
+body {
+    top: 0px !important;
+}
+
+/* Esconde o gadget padrão */
+.goog-te-gadget {
+    font-size: 0 !important;
+}
+
+/* Esconde tooltip */
+.goog-tooltip,
+.goog-tooltip:hover {
+    display: none !important;
+}
+
+/* Remove destaque azul */
+.goog-text-highlight {
+    background: none !important;
+    box-shadow: none !important;
+}
+
+
+
+
+
+
+
+.idiomas {
+    position: absolute;
+    /**  top: 15px;  */
+    top: 2px;
+    /** right: 20px;  */
+    right: 2px;
+    z-index: 9999;
+
+    display: flex;
+    gap: 8px;
+}
+
+.idiomas button {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 6px 12px;
+     border-radius: 20px;  
+
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.idiomas button:hover {
+    background: #2E7D32;
+    color: white;
+}
+
+@media (max-width: 768px) {
+
+    .idiomas {
+        top: 10px;
+        right: 10px;
+    }
+
+    .idiomas button {
+        padding: 5px 8px;
+        font-size: 12px;
+    }
+}
+
+
+
