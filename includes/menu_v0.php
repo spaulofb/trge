@@ -12,12 +12,25 @@ $BASE_PATH = $_SESSION["BASE_PATH"] ;
 ?>
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            
+            <a class="navbar-brand" href="#">
+                <svg height="55" viewBox="0 0 280 70" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35 5 C20 5, 10 20, 10 35 C10 55, 25 65, 35 65 C45 65, 50 55, 50 45 C50 35, 40 30, 35 30 C30 30, 25 35, 25 40 C25 45, 30 50, 35 50" 
+                          stroke="#1a5c3a" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <circle cx="35" cy="18" r="3" fill="#1a5c3a"/>
+                    <text x="60" y="28" font-family="Inter, sans-serif" font-size="11" font-weight="600" fill="#1a5c3a">FMRP – USP</text>
+                    <a href="<?php echo $BASE_URL; ?>" class="link-destaque"  >
+                    <text x="60" y="48" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Departamento de</text>
+                    <text x="60" y="65" font-family="Inter, sans-serif" font-size="18" font-weight="700" fill="#1a5c3a">Genética</text>
+                    </a>
+                </svg>
+            </a>
+
 
 		<a class="navbar-brand" href="<?php echo $BASE_URL; ?>">
 <div class="d-flex align-items-center">
   <!-- Logo -->
-  <img src="<?php echo $BASE_URL;?>img/logo_rge.png" alt="Logo do Departamento de Genética" width="40" height="40" class="me-2">
+  <img src="<?php echo $BASE_URL; ?>img/logo_rge.png" alt="Logo do Departamento de Genética" width="40" height="40" class="me-2">
+  
   <!-- Legenda com duas linhas -->
   <div>
     <div class="fw-bold">FMRP • USP</div>
