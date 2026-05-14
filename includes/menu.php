@@ -10,7 +10,9 @@ $BASE_URL = $_SESSION["BASE_URL"] ;
 $BASE_PATH = $_SESSION["BASE_PATH"] ;
 //
 ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+<!-- Ancora TOPO  -->    
+<div id="topo"></div>
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
             
 

@@ -31,31 +31,75 @@ global $BASE_URL, $BASE_PATH;
 $_SESSION["BASE_URL"] = $BASE_URL=BASE_URL;
 $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
 //
+//  SESSIONs
+$BASE_URL = $_SESSION["BASE_URL"] ;
+$BASE_PATH = $_SESSION["BASE_PATH"] ;
+//
+//  $ip_cliente = $_SERVER['REMOTE_ADDR'];
+//
+//  $ip_permitidos = ['143.107.143.231', '143.107.143.232', '143.107.143.251', '143.107.143.254'];
+/**  
+$ip_permitidos = ['143.107.143.7','143.107.143.231', '143.107.143.211', '143.107.143.251', '143.107.143.254'];
+if( !in_array($ip_cliente, $ip_permitidos) ) {
+    http_response_code(503);
+    include $BASE_PATH.'includes/em-construcao.html';
+    //
+    exit;
+}
+ */
+// 
+if( isset($_SESSION["BASE_PATH"]) ) {
+    //
+    $BASE_PATH = $_SESSION["BASE_PATH"];
+    include_once $BASE_PATH . '/ipsperm.php';
+} else {
+    // Fallback caso a sessão não exista (usando caminho relativo)
+    //
+    die("Erro crítico: SESSION BASE_PATH inexistente.");
+    //
+}
+//
+
+
+
+//
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- Importante para tradutor  -->
     <meta name="google" content="notranslate">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Departamento TESTE</title>
+    <title>Departamento de Genética - FMRP/USP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="<?php echo $BASE_URL; ?>js/tradutor.js"></script>
+   
+    <!-- Importante para tradutor  -->
+    <script src="js/tradutor.js"></script>
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    <link rel="stylesheet" href="<?php echo $BASE_URL; ?>css/styleidiomas.css">
-    <link rel="stylesheet" href="<?php echo $BASE_URL; ?>css/estilo.css">
+    <link rel="stylesheet" href="https://sol.fmrp.usp.br/trge/css/styleidiomas.css">
+    <!-- Importante para Ancora topo  -->
+    <link rel="stylesheet" href="assets/css/btn-topo.css">
+
+    <link rel="stylesheet" href="assets/css/nrges.css">
+
 </head>
 <body>
-<div id="topo"></div>
-    <!-- Navbar -->
-     <!-- Menu/Tradutor -->
-     <?php include $BASE_PATH.'includes/menu.php'; ?>
-
+<?php
+include('rgetopo.php');
+?>
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
+     <video autoplay muted loop playsinline class="hero-video">
+        <source src="assets/img/video_1.webm" type="video/webm">      
+        <source src="assets/img/video_1.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+
+    <div class="container">
             <div class="row">
                 <div class="col-lg-6 hero-content">
                     <div style="width: 40px; height: 3px; background: var(--accent-green); margin-bottom: 1.5rem;"></div>
@@ -158,7 +202,7 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
                 </div>
                 <div class="col-lg-6">
                     <div class="about-img">
-                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=800&h=500&fit=crop" alt="Departamento de Genética">
+                        <img src="assets/img/rge1.jpg" alt="Departamento de Genética">
                     </div>
                 </div>
             </div>
@@ -322,11 +366,6 @@ $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
         </div>
     </section>
 
-    <!-- Footer -->
-     <?php include $BASE_PATH.'includes/footer.php'; ?>
-     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
- <a href="#topo" class="btn-topo" aria-label="Voltar ao topo">↑</a>
-</body>
-</html>
+<?php
+include("rgerodape.php");
+?>

@@ -65,7 +65,8 @@
             color: var(--primary-green);
         }
 
-        /* Hero Section */
+        /*   Hero Section  - atualizado em 20260513 */
+      /*
         .hero-section {
             position: relative;
             height: 600px;
@@ -73,7 +74,54 @@
                         url('https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1920&h=600&fit=crop') center/cover no-repeat;
             display: flex;
             align-items: center;
+
         }
+      */
+
+        .hero-section {
+            position: relative;
+            height: 600px;
+            /*
+                background: linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.75) 0%,
+                    rgba(0,0,0,0.4) 50%,
+                    rgba(0,0,0,0.2) 100%
+                );
+           */
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /***  VIDEO   ***/
+        .video-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            z-index: -1;
+        }
+
+
+
+        /***
+        .hero-section {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%),
+                        url('https://sol.fmrp.usp.br/trge/video/video_1.mp4') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+        }
+*/
+
+
 
         .hero-content {
             position: relative;
@@ -607,6 +655,8 @@
             scroll-behavior: smooth;
         }
 
+
+     /*
         .btn-topo {
             position: fixed;
             right: 25px;
@@ -638,6 +688,50 @@
         .btn-topo:hover {
             background: #0077cc;
             transform: translateY(-4px);
+        }
+            */
+
+
+        .btn-topo {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.65);
+
+            backdrop-filter: blur(4px);
+
+            color: #1b3556; /* seta escura */
+
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50%;
+
+            border: 1px solid rgba(0,0,0,0.10);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+
+            z-index: 99999;
+            transition: all 0.3s ease;
+        }
+
+        .btn-topo:hover {
+            background: rgba(27,53,86,0.85);
+            color: white;
+            transform: translateY(-3px);
+        }            
+
+
+        /* Adicione isso ao seu CSS */
+        .btn-topo::before {
+                content: '' !important; /* Força o símbolo da seta */
         }
 
 

@@ -1,0 +1,110 @@
+.noticia-card{
+    max-width: 900px;
+ margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.noticia-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+}
+
+.noticia-conteudo{
+    padding: 26px 28px;
+}
+
+.noticia-titulo{
+    margin: 0 0 18px 0;
+    font-size: 1.1rem;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #d94f04;
+    letter-spacing: 0.2px;
+}
+
+.noticia-nome{
+    margin: 0 0 8px 0;
+    font-size: .9rem;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #d94f04;
+    letter-spacing: 0.2px;
+}
+
+.noticia-meta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 28px;
+    padding-top: 14px;
+    border-top: 1px solid #edf0f2;
+}
+
+.meta-item{
+    display: flex;
+    flex-direction: column;
+    min-width: 220px;
+}
+
+.meta-label{
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: .6px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+.meta-nome{
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: .6px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.meta-valor{
+    font-size: 1rem;
+    color: #111827;
+    font-weight: 500;
+}
+
+@media (max-width: 768px){
+    .noticia-conteudo{
+        padding: 20px 18px;
+    }
+
+    .noticia-titulo{
+        font-size: 1.3rem;
+    }
+
+    .noticia-meta{
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .meta-item{
+        min-width: auto;
+    }
+}
+
+#titulo-pagina{
+  background:url(assets/img/bg_topo_pg_secundarias.jpg) top right no-repeat #162425;
+  padding:1px 10px 0 10px;
+  height:96px;
+  margin:-4px 0 0 -5px;
+}
+#titulo-pagina h2{
+  color:#FFF;
+  font-size:26px;
+  text-transform:uppercase;
+  font-weight:bold;
+} 
+
+

@@ -1,0 +1,46 @@
+
+        .btn-topo {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,255,255,0.65);
+
+            backdrop-filter: blur(4px);
+
+            color: #1b3556; /* seta escura */
+
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 50%;
+
+            border: 1px solid rgba(0,0,0,0.10);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+
+            z-index: 99999;
+            transition: all 0.3s ease;
+        }
+
+        .btn-topo:hover {
+            background: rgba(27,53,86,0.85);
+            color: white;
+            transform: translateY(-3px);
+        }            
+
+
+        /* Adicione isso ao seu CSS */
+        .btn-topo::before {
+                content: '' !important; /* Força o símbolo da seta */
+        }
+
+
+
+

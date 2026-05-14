@@ -44,12 +44,11 @@ if( !in_array($ip_cliente, $ip_permitidos) ) {
     <link rel="stylesheet" href="<?php echo $BASE_URL; ?>css/estilodepto.css">
 </head>
 <body>
-<div id="topo"></div>
-    <!-- Navbar -->
-     <!-- Menu/Tradutor -->
-     <?php include $BASE_PATH.'includes/menu.php'; ?>
+<!-- Navbar -->
+  <!-- Menu/Tradutor -->
+    <?php include $BASE_PATH.'includes/menu.php'; ?>
 
-       <div class="page">
+     <div class="page">
 
 
     <section class="hero">
@@ -225,10 +224,6 @@ if( !in_array($ip_cliente, $ip_permitidos) ) {
 
 
     <!-- Footer -->
-     <?php include $BASE_PATH.'includes/footer.php'; ?>
-     
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>  
-
-<a href="#topo" class="btn-topo" aria-label="Voltar ao topo">↑</a>    
-</body>
-</html>
+<?php
+include($BASE_PATH."rgerodape.php");
+?>
