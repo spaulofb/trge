@@ -1,3 +1,20 @@
+/**  
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'pt',
+        includedLanguages: 'pt,en',
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+function traduzir(lang) {
+    const select = document.querySelector(".goog-te-combo");
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
+}
+ */
+
 function googleTranslateElementInit() {
     new google.translate.TranslateElement({
         pageLanguage: 'pt',
@@ -7,57 +24,74 @@ function googleTranslateElementInit() {
 }
 
 function traduzir(lang) {
+
+    // Salva o idioma em cookie
+ //   document.cookie = "googtrans=/pt/" + lang + "; path=/";
+
+    // Recarrega a página
+   // location.reload();
+
+
     if (lang === 'pt') {
         document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
-        /* document.cookie = "googtrans=; path=/trge/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";  */
-        document.cookie = "googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+        document.cookie = "googtrans=; path=/trge/; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
         location.reload();
         return;
     }
+
     document.cookie = "googtrans=/pt/" + lang + "; path=/";
-    /*  document.cookie = "googtrans=/pt/" + lang + "; path=/trge/";   */
+    document.cookie = "googtrans=/pt/" + lang + "; path=/trge/";
 
     // Recarrega a página
     location.reload();
     //
 }
-//
+
+
 document.addEventListener("DOMContentLoaded", function () {
+
     function removeBarraGoogle() {
+
         const banner = document.querySelector(".goog-te-banner-frame");
+
         if (banner) {
             banner.style.display = "none";
         }
+
         document.body.style.top = "0px";
     }
+
     setInterval(removeBarraGoogle, 500);
+
 });
-//
+
+
 function esconderBarraGoogle() {
+
     const banner = document.querySelector('iframe.goog-te-banner-frame');
+
     if (banner) {
         banner.style.display = 'none';
         banner.style.visibility = 'hidden';
         banner.style.height = '0';
     }
+
     document.body.style.top = '0px';
     document.documentElement.style.top = '0px';
 }
-//
+
 /* espera o Google traduzir e só esconde a barra */
 setInterval(esconderBarraGoogle, 500);
 
+// Inicialização do Google Translate
+
 // FUNÇÃO PARA TRADUZIR PARA INGLÊS
 function traduzirParaIngles() {
-
-    //  alert("arq tradutor.js - teste dentro da function traduzirParaIngles()  ");
-
-
     // Define o cookie para Inglês (/idioma_origem/idioma_destino)
     // O domínio .usp.br garante que ele sobrescreva qualquer outro cookie do sistema
     document.cookie = "googtrans=/pt/en; path=/; domain=.usp.br";
     document.cookie = "googtrans=/pt/en; path=/";
-  
+    
     // Recarrega para aplicar
     window.location.reload();
 }

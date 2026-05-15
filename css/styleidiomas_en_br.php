@@ -1,27 +1,27 @@
-/***  Garante que o conteúdo dos botões não seja afetado visualmente pelo tradutor **/
+/* Garante que o conteúdo dos botões não seja afetado visualmente pelo tradutor */
 .notranslate {
     translate: no !important;
 }
 
 
 
-/**   Esconde completamente a barra do Google Tradutor  **/
+/* Esconde completamente a barra do Google Tradutor */
 body > .skiptranslate {
     display: none !important;
 }
 
 
-/**   Esconde a barra superior do Google   **/
+/* Esconde a barra superior do Google */
 .goog-te-banner-frame.skiptranslate {
     display: none !important;
 }
 
-/**   Esconde o gadget padrão   **/
+/* Esconde o gadget padrão */
 .goog-te-gadget {
     font-size: 0 !important;
 }
 
-/**   Esconde tooltip    **/
+/* Esconde tooltip */
 .goog-tooltip,
 .goog-tooltip:hover {
     display: none !important;

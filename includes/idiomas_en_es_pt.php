@@ -15,7 +15,8 @@
 
 <!-- Adicionamos a classe 'notranslate' na div pai -->
 <div class="tradutor-custom-buttons notranslate">  
-    <button id="btn-en"  onclick="traduzirIdioma('en')" class="btn-tradutor"><img src="https://flagcdn.com/us.svg" width="20" alt="USA"></button>
+    <button id="btn-en"  onclick="traduzirIdioma('en')" class="btn-tradutor">
+        <img src="https://flagcdn.com/us.svg" width="20" alt="USA"></button>
 
     <button id="btn-es" onclick="traduzirIdioma('en')" class="btn-tradutor">
         <img src="https://flagcdn.com/es.svg" width="20" alt="Espanha">

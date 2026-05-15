@@ -75,18 +75,17 @@ if( isset($_SESSION["BASE_PATH"]) ) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+    <script src="js/tradutor.js"></script> 
        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     <!-- Importante para tradutor  
-   <script src="js/tradutor.js"></script> 
+   
 
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     -->
     
-    
-    <!-- Importante para Ancora topo  
-       <link rel="stylesheet" href="css/styleidiomas.css"> 
-    -->
+
+    <link rel="stylesheet" href="https://sol.fmrp.usp.br/trge/css/styleidiomas.css">
+    <!-- Importante para Ancora topo  -->
     <link rel="stylesheet" href="assets/css/btn-topo.css">
 
     <link rel="stylesheet" href="assets/css/nrges.css">
