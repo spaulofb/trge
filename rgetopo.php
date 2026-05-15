@@ -22,11 +22,13 @@
                      <?php 
                      /**   include 'https://sol.fmrp.usp.br/trge/includes/idiomas.php';   */
                      // 
-                     $traduz = file_get_contents("https://sol.fmrp.usp.br/trge/includes/idiomas.php");
-                     echo $traduz;
+                     //  $traduz = file_get_contents("tradutor.php");
+                     //  echo $traduz;
+                     include("traduttor.php");
                     //
                      ?>
                 </div>
+
                 <a href="#" class="text-muted me-3"><i class="bi bi-search"></i></a>
                 <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>

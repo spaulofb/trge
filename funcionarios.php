@@ -42,6 +42,107 @@ include('rgetopo.php');
     </section>
 
     <!-- Stats Bar -->
+<?php
+//
+// Configurações de Conexão
+$db_host = 'localhost';
+$db_name = 'trge';
+$db_user = 'gemacadm'; // Ajuste conforme seu ambiente
+$db_pass = 'lexus2P5W1!';     // Ajuste conforme seu ambiente
+//
+$conex = new mysqli("$db_host","$db_user","$db_pass","$db_name");
+if( $conex->connect_error) {
+    die("Erro conexão");
+}
+//  $conex->set_charset("utf8");
+//  $conex->set_charset("utf8mb4");
+$conex->set_charset("utf8");
+
+//  Variaveis 
+$totalFuncionarios = 0;
+$totalSetores = 0;
+$totalTecnicosLab = 0;
+$totalEspecialLab = 0;
+$totalAnosCasa = "25+";
+//
+// Define o charset
+//  mysqli_set_charset($conex, "utf8mb4");
+mysqli_set_charset($conex, "utf8");
+//
+$sqlStats = "
+    SELECT
+        COUNT(*) AS total_funcionarios,
+        COUNT(DISTINCT setor) AS total_setores,
+        SUM(CASE 
+            WHEN funcao LIKE '%Técnic%' 
+             AND funcao LIKE '%Laboratório%' 
+            THEN 1 ELSE 0 
+        END) AS total_tecnicos_lab,
+        SUM(CASE 
+            WHEN funcao LIKE '%Especial%' 
+             AND funcao LIKE '%Laboratório%' 
+            THEN 1 ELSE 0 
+        END) AS total_especialistas_lab
+    FROM funcionarios;
+";
+$resStats = $conex->query($sqlStats);
+//
+if ($resStats && $dadosStats = $resStats->fetch_assoc()) {
+    $totalFuncionarios = $dadosStats['total_funcionarios'];
+    $totalSetores = $dadosStats['total_setores'];
+    $totalTecnicosLab = $dadosStats['total_tecnicos_lab'];
+    $totalEspecialLab = $dadosStats['total_especialistas_lab'];
+}
+//
+?>
+
+<section class="stats-bar">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <span class="stat-number"><?= $totalFuncionarios ?></span>
+                    <span class="stat-label">Funcionários</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <div class="stat-item">
+                    <span class="stat-number"><?= $totalSetores ?></span>
+                    <span class="stat-label">Setores</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3 mt-3 mt-md-0">
+                <div class="stat-item">
+                    <span class="stat-number"><?= $totalTecnicosLab ?></span>
+                    <span class="stat-label">Técnicos de Lab.</span>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-3 mt-3 mt-md-0">
+                <div class="stat-item">
+                    <span class="stat-number"><?= $totalEspecialLab ?></span>
+                    <span class="stat-label">Especialistas de Lab.</span>
+                </div>
+            </div>
+
+
+            <div class="col-6 col-md-3 mt-3 mt-md-0">
+                <div class="stat-item">
+                    <span class="stat-number"><?= $totalAnosCasa ?></span>
+                    <span class="stat-label">Anos de Casa</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
     <section class="stats-bar">
         <div class="container">
             <div class="row justify-content-center">
