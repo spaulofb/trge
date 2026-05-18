@@ -29,7 +29,7 @@ $BASE_PATH = $_SESSION["BASE_PATH"] ;
 $ip_cliente = $_SERVER['REMOTE_ADDR'];
 //
 // Array IPs permitidos
-$ip_permitidos = ['143.107.143.7', '143.107.143.224',  '143.107.143.231', '143.107.143.232',    '143.107.143.211', '143.107.143.251', '143.107.143.254'];
+$ip_permitidos = ['143.107.143.7','143.107.143.231', '143.107.143.232',    '143.107.143.211', '143.107.143.251', '143.107.143.254'];
 if( !in_array($ip_cliente, $ip_permitidos) ) {
     http_response_code(503);
     include $BASE_PATH.'includes/em-construcao.html';

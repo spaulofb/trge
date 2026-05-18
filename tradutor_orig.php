@@ -74,6 +74,11 @@ iframe.goog-te-banner-frame {
     font-size: 0 !important;
 }
 
+
+
+
+
+
 .idiomas {
     position: absolute;
     /**  top: 15px;  */
@@ -429,6 +434,3 @@ function checkActiveLang() {
 
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-
-

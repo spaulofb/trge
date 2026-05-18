@@ -60,6 +60,7 @@ if( in_array($ip_cliente, $ip_permitidos) ) {
 <head>
     <meta charset="UTF-8">
     <!-- Importante para tradutor  -->
+    <meta name="google" content="notranslate">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chefia – Departamento de Genética – FMRP/USP</title>
@@ -70,11 +71,12 @@ if( in_array($ip_cliente, $ip_permitidos) ) {
     <script src="js/tradutor.js"></script>  
     <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     -->
-   
+    
 
+    
+    <link rel="stylesheet" href="https://sol.fmrp.usp.br/trge/css/styleidiomas.css">
     <!-- Importante para Ancora topo  -->
     <link rel="stylesheet" href="assets/css/btn-topo.css">
-    <link rel="stylesheet" href="assets/css/nrges.css">
 
     <style>
         :root {
@@ -717,63 +719,10 @@ if( in_array($ip_cliente, $ip_permitidos) ) {
 <!-- Navbar -->
 <!-- Navbar -->
 <?php
-//
 include('rgetopo.php');
-//
-// Configurações de Conexão
-$db_host = 'localhost';
-$db_name = 'trge';
-// $db_user = 'gemacadm'; // Ajuste conforme seu ambiente
-$db_user = 'admin'; // Ajuste conforme seu ambiente
-//  $db_pass = 'lexus2P5W1!';     // Ajuste conforme seu ambiente
-$db_pass = 'M1#oTaur0';     // Ajuste conforme seu ambiente
-//
-$con = new mysqli("$db_host","$db_user","$db_pass","$db_name");
-if ($con->connect_error) {
-    die("Erro conexão");
-}
-$con->set_charset("utf8");
-//
-// =========================================================================
-// 1. CONSULTA DOS DADOS GERAIS (Estatísticas do Topo)
-// =========================================================================
-$sqlGeral = "SELECT 
-                YEAR(MIN(pc.Dta_Inicio)) as ano_inicial, 
-                YEAR(MAX(COALESCE(pc.Dta_Fim, NOW()))) as ano_final,
-                (YEAR(MAX(COALESCE(pc.Dta_Fim, NOW()))) - YEAR(MIN(pc.Dta_Inicio))) as total_anos_historia,
-                COUNT(*) as total_mandatos,
-                COUNT(DISTINCT pc.Cod_Pessoa) as total_chefes_unicos
-             FROM Pessoa_Chefia pc";
-
-$resGeral = $con->query($sqlGeral);
-if ($resGeral) {
-    $dadosGerais = $resGeral->fetch_assoc();
-} else {
-    // Caso pare de funcionar por erro de banco ou sintaxe, isto dirá o motivo exato:
-    die("Erro na consulta Geral: " . $con->error);
-}
-$dadosGerais = $resGeral ? $resGeral->fetch_assoc() : null;
-//
-
-// =========================================================================
-// 2. CONSULTA DO HISTÓRICO (Timeline)
-// =========================================================================
-// Fazemos INNER JOIN para o Chefe e LEFT JOIN para o Vice (pois o vice pode ser NULL)
-$sql = "SELECT 
-            YEAR(pc.Dta_Inicio) as anoini,
-            YEAR(pc.Dta_Fim) as anofin,
-            pc.Dta_Fim,
-            p1.Nom_Pessoa as Nom_Chefe,
-            p2.Nom_Pessoa as Nom_Vice
-        FROM Pessoa_Chefia pc
-        INNER JOIN Pessoa p1 ON pc.Cod_Pessoa = p1.Cod_Pessoa
-        LEFT JOIN Pessoa p2 ON pc.Cod_Pessoa_Vice = p2.Cod_Pessoa
-        ORDER BY pc.Dta_Inicio DESC, pc.Dta_Fim DESC";
-//
-$result = $con->query($sql);
-//
 ?>
-<!-- Page Header -->
+  
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container page-header-content">
             <nav class="breadcrumb-custom">
@@ -788,42 +737,31 @@ $result = $con->query($sql);
         </div>
     </section>
 
-<?php
-//
-$linha = mysqli_fetch_assoc($result);
-//
-
-echo "PARROULINHA 796";
-exit();
-
-
-?>
-
     <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $resGeral['total_anos_historia']+2; ?></span>
+                        <span class="stat-number">60</span>
                         <span class="stat-label">Anos de História</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $resGeral['total_mandatos']; ?></span>
+                        <span class="stat-number">12+</span>
                         <span class="stat-label">Chefias</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 mt-3 mt-md-0">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $linha['anoini']; ?>/<?php echo $linha['anofin']; ?></span>
-                        <span class="stat-label">Gestão Atual Período</span>
+                        <span class="stat-number">2024</span>
+                        <span class="stat-label">Gestão Atual</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 mt-3 mt-md-0">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $linha['anofin']-$linha['anoini']; ?></span>
+                        <span class="stat-number">4</span>
                         <span class="stat-label">Anos de Mandato</span>
                     </div>
                 </div>
@@ -831,11 +769,10 @@ exit();
         </div>
     </section>
 
-    
     <!-- Chefia Atual -->
     <section class="chefia-section">
         <div class="container">
-            <div class="section-label mb-2">Gestão <?php echo $linha['anoini']; ?>-<?php echo $linha['anofin']; ?></div>
+            <div class="section-label mb-2">Gestão 2024–2028</div>
             <h2 class="mb-5" style="font-size: 2rem; font-weight: 700; color: #222;">Chefia Atual</h2>
 
             <div class="row g-4 justify-content-center">
@@ -973,47 +910,51 @@ exit();
 
 <?php
 //
-
-exit();
-
-
-// Obtém o ano atual dinamicamente para validar a gestão ativa
-$anoAtual = (int)date('Y');
-
-// Busca os dados relacionando o histórico de mandatos com os dados cadastrais da Pessoa
-$sql = "SELECT pc.anoini, pc.anofin, pc.descri, pc.vice, p.Nom_Pessoa
-        FROM Pessoa_Chefia pc
-        INNER JOIN Pessoa p ON pc.Cod_Pessoa = p.Cod_Pessoa
-        ORDER BY pc.anoini DESC, pc.anofin DESC";
-
-// Mantivemos o padrão Orientado a Objetos ($con->query) que você já usa
+// Configurações de Conexão
+$db_host = 'localhost';
+$db_name = 'trge';
+$db_user = 'gemacadm'; // Ajuste conforme seu ambiente
+$db_pass = 'lexus2P5W1!';     // Ajuste conforme seu ambiente
+//
+$con = new mysqli("$db_host","$db_user","$db_pass","$db_name");
+if ($con->connect_error) {
+    die("Erro conexão");
+}
+$con->set_charset("utf8");
+//
+// Busca os dados ordenados por início e fim decrescentes
+$sql = "SELECT * FROM chefia ORDER BY anoini DESC, anofin DESC";
 $result = $con->query($sql);
+//
 ?>
-
+//
 <!-- Histórico de Chefias -->
 <section class="historico-section">
    <div class="container">
-        <div class="section-label mb-2">Trajetória Institucional</div>
-        <h2 class="mb-5 text-center" style="font-size: 2rem; font-weight: 700; color: #222;">Histórico de Chefias</h2>
+            <div class="section-label mb-2">Trajetória Institucional</div>
+            <h2 class="mb-5 text-center" style="font-size: 2rem; font-weight: 700; color: #222;">Histórico de Chefias</h2>
 
 <div class="timeline">
 <?php if ($result && $result->num_rows > 0): ?>
     <?php while ($row = $result->fetch_assoc()): ?>
+
         <?php
-            // Agora verifica dinamicamente se o ano atual está dentro do intervalo do mandato
-            $atual = ($anoAtual >= $row['anoini'] && $anoAtual <= $row['anofin']) ? ' current' : '';
+            $atual = ($row['anoini'] == 2024 && $row['anofin'] == 2028) ? ' current' : '';
         ?>
+
         <div class="timeline-item<?= $atual ?>">
             <div class="timeline-dot"></div>
 
             <div class="timeline-content">
+
                 <div class="timeline-year">
                     <?= htmlspecialchars($row['anoini']) ?> – <?= htmlspecialchars($row['anofin']) ?>
                 </div>
+
                 <div class="timeline-name">
-                    <!-- Alterado de $row['chefe'] para $row['Nom_Pessoa'] -->
-                    <?= htmlspecialchars($row['Nom_Pessoa']) ?>
+                    <?= htmlspecialchars($row['chefe']) ?>
                 </div>
+
                 <div class="timeline-role">
                     <?= htmlspecialchars($row['descri']) ?>
                 </div>
@@ -1036,7 +977,7 @@ $result = $con->query($sql);
 <?php else: ?>
 
     <div class="alert alert-warning text-center">
-        Nenhuns registro de chefia encontrado.
+        Nenhum registro de chefia encontrado.
     </div>
 
 <?php endif; ?>
@@ -1046,8 +987,6 @@ $result = $con->query($sql);
 </div>
 </section>
 <!-- Final - Histórico de Chefias com BD/TB -->
-
-
 
 <hr>
 

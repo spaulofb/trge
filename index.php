@@ -31,10 +31,6 @@ global $BASE_URL, $BASE_PATH;
 $_SESSION["BASE_URL"] = $BASE_URL=BASE_URL;
 $_SESSION["BASE_PATH"] = $BASE_PATH=BASE_PATH;
 //
-//  SESSIONs
-$BASE_URL = $_SESSION["BASE_URL"] ;
-$BASE_PATH = $_SESSION["BASE_PATH"] ;
-//
 //  $ip_cliente = $_SERVER['REMOTE_ADDR'];
 //
 //  $ip_permitidos = ['143.107.143.231', '143.107.143.232', '143.107.143.251', '143.107.143.254'];
@@ -48,19 +44,17 @@ if( !in_array($ip_cliente, $ip_permitidos) ) {
 }
  */
 // 
-if( isset($_SESSION["BASE_PATH"]) ) {
+//  if( isset($_SESSION["BASE_PATH"]) ) {
     //
-    $BASE_PATH = $_SESSION["BASE_PATH"];
-    include_once $BASE_PATH . '/ipsperm.php';
-} else {
-    // Fallback caso a sessão não exista (usando caminho relativo)
+//    $BASE_PATH = $_SESSION["BASE_PATH"];
+//    include_once $BASE_PATH . '/ipsperm.php';
+//  } else {
+      // Fallback caso a sessão não exista (usando caminho relativo)
+      //
+//    die("Erro crítico: SESSION BASE_PATH inexistente.");
     //
-    die("Erro crítico: SESSION BASE_PATH inexistente.");
-    //
-}
+//  }
 //
-
-
 
 //
 ?>
@@ -76,7 +70,7 @@ if( isset($_SESSION["BASE_PATH"]) ) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-       <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
     <!-- Importante para tradutor  
    <script src="js/tradutor.js"></script> 
 

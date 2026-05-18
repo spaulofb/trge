@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="assets/css/btn-topo.css">
 
   <link rel="stylesheet" href="assets/css/rgehisto.css">
-  <link rel="stylesheet" href="assets/css/nrges.css">
 </head>
 <style>
 .docente-foto {

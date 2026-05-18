@@ -266,92 +266,70 @@ function esconderBarraGoogle() {
 /* espera o Google traduzir e só esconde a barra */
 setInterval(esconderBarraGoogle, 500);
 
-// FUNÇÃO PARA TRADUZIR PARA INGLÊS
-function traduzirParaIngles() {
 
-     marcarIdiomaAtivo('en');
+// Função genérica para setar o cookie de tradução
+// 1. FUNÇÃO MESTRE (A única que deve manipular cookies e reload)
+function configurarTraducao(lang) {
+    const cookieValue = "/pt/" + lang;
+    
+    // Limpa cookies antigos em todos os domínios possíveis para evitar conflito
+    const dominios = [window.location.hostname, '.usp.br', '.fmrp.usp.br'];
+    dominios.forEach(dom => {
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + dom;
+    });
 
-//  alert("INGLES");
+    // Define o novo cookie com SameSite=Lax (Correção para Firefox/Safari)
+    document.cookie = "googtrans=" + cookieValue + "; path=/; SameSite=Lax";
+    
+    // Salva no LocalStorage como backup
+    localStorage.setItem('googtrans', cookieValue);
 
-    document.cookie = "googtrans=/pt/en; path=/";
-    document.cookie = "googtrans=/pt/en; path=/; domain=.usp.br";
-    document.cookie = "googtrans=/pt/en; path=/; domain=.fmrp.usp.br";
-
-    localStorage.setItem('googtrans', '/pt/en');
-
-    setTimeout(function () {
-
-        const combo = document.querySelector(".goog-te-combo");
-
-        if (combo) {
-
-            combo.value = "en";
-            combo.dispatchEvent(new Event("change"));
-
-        } else {
-
-            location.reload();
-        }
-
-    }, 800);
+    // Tenta acionar o widget do Google se ele já estiver carregado
+    const combo = document.querySelector(".goog-te-combo");
+    if (combo) {
+        combo.value = lang;
+        combo.dispatchEvent(new Event("change"));
+    } else {
+        // Se o widget não carregou ainda, força o reload real com timestamp
+        // Isso resolve o problema do Firefox não "perceber" a mudança
+        const url = new URL(window.location.href);
+        url.searchParams.set('lang_refresh', Date.now());
+        window.location.href = url.toString();
+    }
 }
 
+// FUNÇÃO PARA TRADUZIR PARA INGLÊS
+// 2. FUNÇÕES SIMPLIFICADAS DOS BOTÕES
+function traduzirParaIngles() {
+    marcarIdiomaAtivo('en');
+    configurarTraducao('en');
+}
 
 
 // FUNÇÃO PARA TRADUZIR PARA ESPANHOL
 function traduzirParaEspanhol() {
-
     marcarIdiomaAtivo('es');
-
-
-    document.cookie = "googtrans=/pt/es; path=/";
-    document.cookie = "googtrans=/pt/es; path=/; domain=.usp.br";
-    document.cookie = "googtrans=/pt/es; path=/; domain=.fmrp.usp.br";
-
-    localStorage.setItem('googtrans', '/pt/es');
-
-    setTimeout(function () {
-
-        const combo = document.querySelector(".goog-te-combo");
-
-        if (combo) {
-
-            combo.value = "es";
-            combo.dispatchEvent(new Event("change"));
-
-        } else {
-            // Recarrega para aplicar
-            location.reload();
-        }
-
-    }, 800);
+    configurarTraducao('es');
 }
-
-
 
 
 // FUNÇÃO PARA VOLTAR PARA PORTUGUÊS (LIMPEZA TOTAL)
 function resetParaPortugues() {
-
-
     marcarIdiomaAtivo('pt');
-
-
-    // Lista de domínios para varrer e deletar cookies antigos que causam conflito
-    var dominios = [window.location.hostname, '.usp.br', '.fmrp.usp.br'];
     
-    dominios.forEach(function(dom) {
-        // Expira o cookie em todos os caminhos possíveis
+    const dominios = [window.location.hostname, '.usp.br', '.fmrp.usp.br'];
+    dominios.forEach(dom => {
         document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + dom;
-        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/trge/; domain=" + dom;
     });
-
-    // Limpeza final de cookie sem domínio
-    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     
-    // Recarrega a página no estado original
-    window.location.reload();
+    document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
+    localStorage.removeItem('googtrans');
+
+    // Volta para a URL original sem o parâmetro de refresh
+    window.location.href = window.location.pathname;
 }
+
+
 
 // NOVA FUNÇÃO: Verifica o idioma ao carregar a página
 function checkActiveLang() {
