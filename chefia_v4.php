@@ -1,12 +1,78 @@
+<?php
+/*
+*   Chefias do Depto de Genetica - FMRP/USP
+*/
+//  Caso sseion_start desativado - Ativar
+if( !isset($_SESSION) ) {
+     session_start();
+}
+//
+/**
+ *   1. Usando a constante mágica __DIR__ (Recomendado)
+*       A constante __DIR__ retorna o caminho completo da pasta onde o 
+*       arquivo chefia.php está. Como o ipsperm.php está uma pasta acima, 
+*       usamos dirname() para subir um nível.
+*      Estão na mesma pasta 
+ */
+//  $path = dirname(__DIR__) . '/ipsperm.php';
+/** 
+$path = __DIR__ . '/ipsperm.php';
+if (file_exists($path)) {
+    echo "PASSOU 1 <br>";
+    require_once $path;
+} else {
+    die("Erro crítico: O arquivo de configuração não foi encontrado em: " . $path);
+}
+*/
+//
+/**
+ *   MELHOR JEITO 
+ *   Verifica se a sessao existe antes de incluir
+ */
+// 
+if( isset($_SESSION["BASE_PATH"]) ) {
+    //
+    $BASE_PATH = $_SESSION["BASE_PATH"];
+    include_once $BASE_PATH . '/ipsperm.php';
+} else {
+    // Fallback caso a sessão não exista (usando caminho relativo)
+    //
+    die("Erro crítico: SESSION BASE_PATH inexistente.");
+    //
+}
+//
+//  IP Conectado
+//  $ip_cliente = $_SERVER['REMOTE_ADDR'];
+//
+// Array IPs permitidos
+//  $ip_permitidos = ['143.107.143.7'];
+/** 
+if( in_array($ip_cliente, $ip_permitidos) ) {
+         http_response_code(503);
+        include $BASE_PATH.'includes/em-construcao.html';
+        exit;
+}
+*/        
+//
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <!-- Importante para tradutor  -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chefia – Departamento de Genética – FMRP/USP</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+     <!-- Importante para tradutor  
+    <script src="js/tradutor.js"></script>  
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    -->
+   
+
+    <!-- Importante para Ancora topo  -->
     <link rel="stylesheet" href="assets/css/btn-topo.css">
     <link rel="stylesheet" href="assets/css/nrges.css">
 
@@ -678,26 +744,17 @@ $sqlGeral = "SELECT
                 COUNT(*) as total_mandatos,
                 COUNT(DISTINCT pc.Cod_Pessoa) as total_chefes_unicos
              FROM Pessoa_Chefia pc";
-//
-// Executando mysqli_query
+
 $resGeral = $con->query($sqlGeral);
-//
-if( !$resGeral) {
-    // 
-    error_log("Erro SQL Pessoa_Chefia: " . $con->error);
-    die("Ocorreu um erro ao carregar os dados.");
+if ($resGeral) {
+    $dadosGerais = $resGeral->fetch_assoc();
+} else {
+    // Caso pare de funcionar por erro de banco ou sintaxe, isto dirá o motivo exato:
+    die("Erro na consulta Geral: " . $con->error);
 }
-/**
- *   Resultado de uma consulta ao banco de dados em um array associativo, 
- *      -  onde o nome de cada coluna da tabela vira a "chave" (index) do array.
-*/
-$dadosGerais = $resGeral->fetch_assoc();
-if( !$dadosGerais) {
-     //
-    error_log("Consulta Pessoa_Chefia retornou vazio.");
-    die("Nenhum dado disponível no momento.");
-}
+$dadosGerais = $resGeral ? $resGeral->fetch_assoc() : null;
 //
+
 // =========================================================================
 // 2. CONSULTA DO HISTÓRICO (Timeline)
 // =========================================================================
@@ -714,29 +771,10 @@ $sql = "SELECT
         ORDER BY pc.Dta_Inicio DESC, pc.Dta_Fim DESC";
 //
 $result = $con->query($sql);
-if( !$result) {
-    // 
-    error_log("Erro SQL Pessoa_Chefia e Pessoa: " . $con->error);
-    die("Ocorreu um erro ao carregar os dados das Tabelas.");
-}
-//
-/**
-*    Precisa corrigir a Tabela Pessoa_Chefia
-*   $dadosGerais['total_anos_historia']
-*   Quem foram os primeiros chefes desde 1965 (data da fundacao do Depto de Genética)
-*    - definindo desse jeito abaixo
-*/
-$anoAtual = (new DateTime())->format('Y');
-$totanosgen = $anoAtual - 1965;
-//
-// Anos de Mandato
-$anosMand=4;
-//
-$linha = mysqli_fetch_assoc($result);
 //
 ?>
 <!-- Page Header -->
-  <section class="page-header">
+    <section class="page-header">
         <div class="container page-header-content">
             <nav class="breadcrumb-custom">
                 <a href="index.html">Início</a>
@@ -750,38 +788,48 @@ $linha = mysqli_fetch_assoc($result);
         </div>
     </section>
 
-   <!-- Stats Bar -->
+<?php
+//
+$linha = mysqli_fetch_assoc($result);
+//
+
+echo "PARROU AQUI - LINHA 796";
+exit();
+
+
+?>
+
+    <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $totanosgen;?></span>
+                        <span class="stat-number"><?php echo $resGeral['total_anos_historia']+2; ?></span>
                         <span class="stat-label">Anos de História</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $dadosGerais["total_mandatos"];?></span>
+                        <span class="stat-number"><?php echo $resGeral['total_mandatos']; ?></span>
                         <span class="stat-label">Chefias</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 mt-3 mt-md-0">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $linha['anoini']; ?></span>
-                        <span class="stat-label">Gestão Atual</span>
+                        <span class="stat-number"><?php echo $linha['anoini']; ?>/<?php echo $linha['anofin']; ?></span>
+                        <span class="stat-label">Gestão Atual Período</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-3 mt-3 mt-md-0">
                     <div class="stat-item">
-                        <span class="stat-number"><?php echo $anosMand; ?></span>
+                        <span class="stat-number"><?php echo $linha['anofin']-$linha['anoini']; ?></span>
                         <span class="stat-label">Anos de Mandato</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    
 
     
     <!-- Chefia Atual -->
@@ -797,8 +845,7 @@ $linha = mysqli_fetch_assoc($result);
                         <div class="chefia-card-header">
                             <span class="chefia-badge">Chefe</span>
                             <div class="chefia-avatar">
-                                  <!-- A FOTO ENTRA AQUI SUBSTITUINDO O ÍCONE - CHEFE -->
-                                 <img src="./assets/img/fotos_docentes/foto14.png" alt="Foto do Chefe">
+                                <i class="bi bi-person-fill"></i>
                             </div>
                         </div>
                         <div class="chefia-card-body">
@@ -814,7 +861,7 @@ $linha = mysqli_fetch_assoc($result);
                                 </div>
                                 <div class="chefia-contact-item">
                                     <i class="bi bi-telephone"></i>
-                                    <span>(16) 3315-8714</span>
+                                    <span>(16) 3315-3300</span>
                                 </div>
                                 <div class="chefia-contact-item">
                                     <i class="bi bi-geo-alt"></i>
@@ -835,8 +882,7 @@ $linha = mysqli_fetch_assoc($result);
                         <div class="chefia-card-header chefia-card-header-vice">
                             <span class="chefia-badge">Vice-Chefe</span>
                             <div class="chefia-avatar">
-                                  <!-- A FOTO ENTRA AQUI SUBSTITUINDO O ÍCONE - VICE -->
-                                 <img src="./assets/img/fotos_docentes/foto3.png" alt="Foto do Chefe">
+                                <i class="bi bi-person-fill"></i>
                             </div>
                         </div>
                         <div class="chefia-card-body">
@@ -927,32 +973,21 @@ $linha = mysqli_fetch_assoc($result);
 
 <?php
 //
-//  
-$anosExtras = 4;
-//
-$sql = "SELECT YEAR(pc.Dta_Inicio) AS anoini,
-            IF(
-                pc.Dta_Fim IS NULL,
-                YEAR(pc.Dta_Inicio) + $anosExtras,
-                YEAR(pc.Dta_Fim)
-            ) AS anofin,
-            p1.Nom_Pessoa AS chefe,
-            p2.Nom_Pessoa AS vice
+
+exit();
+
+
+// Obtém o ano atual dinamicamente para validar a gestão ativa
+$anoAtual = (int)date('Y');
+
+// Busca os dados relacionando o histórico de mandatos com os dados cadastrais da Pessoa
+$sql = "SELECT pc.anoini, pc.anofin, pc.descri, pc.vice, p.Nom_Pessoa
         FROM Pessoa_Chefia pc
-        LEFT JOIN Pessoa p1
-               ON p1.Cod_Pessoa = pc.Cod_Pessoa
-        LEFT JOIN Pessoa p2
-               ON p2.Cod_Pessoa = pc.Cod_Pessoa_Vice
-        ORDER BY pc.Dta_Inicio DESC";
-//
+        INNER JOIN Pessoa p ON pc.Cod_Pessoa = p.Cod_Pessoa
+        ORDER BY pc.anoini DESC, pc.anofin DESC";
+
 // Mantivemos o padrão Orientado a Objetos ($con->query) que você já usa
 $result = $con->query($sql);
-if( !$result) {
-    // 
-    error_log("Erro SQL Pessoa_Chefia e Pessoa: " . $con->error);
-    die("Ocorreu um erro ao carregar os dados das Tabelas.");
-}
-//
 ?>
 
 <!-- Histórico de Chefias -->
@@ -976,8 +1011,11 @@ if( !$result) {
                     <?= htmlspecialchars($row['anoini']) ?> – <?= htmlspecialchars($row['anofin']) ?>
                 </div>
                 <div class="timeline-name">
-                    <!-- Alterado de$row['Nom_Pessoa'] para  $row['chefe']  -->
-                    <?= htmlspecialchars($row['chefe']) ?>
+                    <!-- Alterado de $row['chefe'] para $row['Nom_Pessoa'] -->
+                    <?= htmlspecialchars($row['Nom_Pessoa']) ?>
+                </div>
+                <div class="timeline-role">
+                    <?= htmlspecialchars($row['descri']) ?>
                 </div>
 
                 <?php if (!empty($row['vice'])): ?>
@@ -1008,6 +1046,7 @@ if( !$result) {
 </div>
 </section>
 <!-- Final - Histórico de Chefias com BD/TB -->
+
 
 
 <hr>

@@ -750,7 +750,7 @@ $linha = mysqli_fetch_assoc($result);
         </div>
     </section>
 
-   <!-- Stats Bar -->
+    <!-- Stats Bar -->
     <section class="stats-bar">
         <div class="container">
             <div class="row justify-content-center">
@@ -798,7 +798,7 @@ $linha = mysqli_fetch_assoc($result);
                             <span class="chefia-badge">Chefe</span>
                             <div class="chefia-avatar">
                                   <!-- A FOTO ENTRA AQUI SUBSTITUINDO O ÍCONE - CHEFE -->
-                                 <img src="./assets/img/fotos_docentes/foto14.png" alt="Foto do Chefe">
+                                 <img src="https://sol.fmrp.usp.br/trge/assets/img/fotos_docentes/foto14.png" alt="Foto do Chefe">
                             </div>
                         </div>
                         <div class="chefia-card-body">
@@ -836,7 +836,7 @@ $linha = mysqli_fetch_assoc($result);
                             <span class="chefia-badge">Vice-Chefe</span>
                             <div class="chefia-avatar">
                                   <!-- A FOTO ENTRA AQUI SUBSTITUINDO O ÍCONE - VICE -->
-                                 <img src="./assets/img/fotos_docentes/foto3.png" alt="Foto do Chefe">
+                                 <img src="https://sol.fmrp.usp.br/trge/assets/img/fotos_docentes/foto3.png" alt="Foto do Chefe">
                             </div>
                         </div>
                         <div class="chefia-card-body">
